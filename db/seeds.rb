@@ -1,8 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
 # db/seeds.rb
-
 # Ensure Faker is loaded
 require 'faker'
 
@@ -13,10 +9,25 @@ Booking.destroy_all
 
 # Seed Users
 5.times do
-  User.create(
+  user = User.create(
     email: Faker::Internet.email,
-    password: 'password' # You might want to set a default password
+    password: 'password'
   )
+
+  # Seed Services for each User
+  2.times do
+    service = Service.create(
+      user: user,
+      service_name: "#{['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample}: #{Faker::Lorem.words(number: 2).join(' ')}",
+      description: Faker::Lorem.paragraph,
+      category: ['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample,
+      price: Faker::Commerce.price,
+      location: Faker::Address.city
+    )
+
+    # Clear bookings associated with the service
+    service.bookings.destroy_all
+  end
 end
 
 # Seed Services
