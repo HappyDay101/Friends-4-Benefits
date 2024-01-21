@@ -1,0 +1,9 @@
+<h1>Find Your Bestie</h1>
+
+<%= @services.each do |service| %>
+  <div>
+    <h2><%= service.name %></h2>
+    <p><%= service.description %></p>
+    <p><%= service.price %></p>
+  </div>
+<% end %>
