@@ -1,8 +1,8 @@
-<h1>Find Your Bestie</h1>
+<h1>Available Services</h1>
 
-<%= @services.each do |service| %>
+<% @services.each do |service| %>
   <div>
-    <h2><%= service.name %></h2>
+    <h2><%= service.service_name %></h2>
     <p><%= service.description %></p>
     <p><%= service.price %></p>
   </div>
