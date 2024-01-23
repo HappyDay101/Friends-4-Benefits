@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @reservations = @service.bookings.includes(:user)
   end
 
   private
