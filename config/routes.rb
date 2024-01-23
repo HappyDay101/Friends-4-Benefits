@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :services, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :reservations, only: [:create]
   end
+  get '/reservations/new', to: 'reservations#new', as: 'new_reservation'
 end
