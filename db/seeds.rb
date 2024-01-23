@@ -12,11 +12,10 @@ Booking.destroy_all
 puts 'Creating 5 new users'
 5.times do
   user = User.create!(
-    # first_name: Faker::FunnyName.name,
     email: Faker::Internet.email,
     password: 'password'
   )
-  puts "#{user.first_name} has been created"
+  puts "#{user.email} has been created"
 end
 puts "Users are done!"
 
