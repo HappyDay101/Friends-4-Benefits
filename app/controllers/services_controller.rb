@@ -1,12 +1,13 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @services = Service.all
   end
 
   def show
-    @reservations = @service.bookings.includes(:user)
+    @bookings = @service.bookings.includes(:user)  # Change from @reservations to @bookings
   end
 
   private
