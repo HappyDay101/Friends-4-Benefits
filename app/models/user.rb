@@ -7,8 +7,6 @@ class User < ApplicationRecord
   has_many :services, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
-  # custom validation
-
   def full_name
     "#{first_name} #{last_name}"
   end
