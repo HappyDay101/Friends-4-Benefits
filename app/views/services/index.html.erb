@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <!-- Navbar -->
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Messages</a>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Title Section -->
+  <div class="text-center mt-4">
+    <h1 class="fw-bold">Find Your Bestie</h1>
+    <p class="text-muted">Find your future best friend</p>
+
+    <!-- Search Box -->
+    <div class="input-group mt-3 w-50 mx-auto">
+      <input type="text" class="form-control" placeholder="Search your friend">
+      <button class="btn btn-orange search-btn" type="button">Search</button>
+    </div>
+  </div>
+
+  <!-- Services Cards Section -->
+  <div class="row mt-4">
+    <% @services.each do |service| %>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://placekitten.com/300/200" class="card-img-top" alt="Service Image">
+          <div class="card-body">
+            <h5 class="card-title"><%= service.service_name %></h5>
+            <p class="card-text"><%= service.description %></p>
+            <p class="card-text"><%= service.price %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
