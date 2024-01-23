@@ -1,18 +1,18 @@
 <h1><%= @service.service_name %></h1>
 <p><%= @service.description %></p>
 
-<% if @reservations.any? %>
-  <h2>Reservations</h2>
+<% if @bookings.any? %>
+  <h2>Bookings</h2>
   <ul>
-    <% @reservations.each do |reservation| %>
+    <% @bookings.each do |booking| %>
       <li>
-        Reserved by: <%= reservation.user.email %>
-        from: <%= reservation.start_date %> to <%= reservation.end_date %>
+        Booked by: <%= booking.user.email %>
+        from: <%= booking.start_date %> to <%= booking.end_date %>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>No reservations for this service yet.</p>
+  <p>No bookings for this service yet.</p>
 <% end %>
 
-<%= render 'reservations/form', booking: @booking %>
+<%= render 'bookings/form', booking: @booking %>

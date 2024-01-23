@@ -1,7 +1,6 @@
-
-<h1>New Reservation</h1>
-<%= form_with(model: [@service, @reservation], local: true) do |form| %>
-   <div class="field">
+<h1>New Booking</h1>
+<%= form_with(model: [@service, @booking], local: true) do |form| %>
+  <div class="field">
     <%= form.label :start_date %>
     <%= form.date_field :start_date %>
   </div>
