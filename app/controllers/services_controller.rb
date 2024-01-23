@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @reservations = @service.bookings.includes(:user)
+    @bookings = @service.bookings.includes(:user)  # Change from @reservations to @bookings
   end
 
   private
