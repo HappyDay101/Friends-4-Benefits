@@ -8,7 +8,6 @@ class User < ApplicationRecord
   # custom validation
   validates :username, presence: true, uniqueness: true
 
-  #custom method !
   def full_name
     "#{first_name} #{last_name}"
   end
