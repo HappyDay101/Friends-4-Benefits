@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   # custom validation
-  validates :username, presence: true, uniqueness: true
+  # validates :username, presence: true, uniqueness: true
 
   def full_name
     "#{first_name} #{last_name}"
