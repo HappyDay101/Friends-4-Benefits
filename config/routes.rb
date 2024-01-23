@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "services#index"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
   resources :services, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :reservations, only: [:create]
+    resources :bookings, only: [:create]  # Changed from :reservations to :bookings
   end
-  get '/reservations/new', to: 'reservations#new', as: 'new_reservation'
+
+  get '/bookings/new', to: 'bookings#new', as: 'new_booking'  # Changed from 'reservations' to 'bookings'
 end

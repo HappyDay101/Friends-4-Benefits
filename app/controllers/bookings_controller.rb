@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def new
@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
       @service = Service.new
     end
 
-    @reservation = Reservation.new
+    @booking = Booking.new
   end
 
   def create
@@ -16,9 +16,9 @@ class ReservationsController < ApplicationController
     @booking = current_user.bookings.new(booking_params.merge(service: @service))
 
     if @booking.save
-      redirect_to @service, notice: 'Reservation successful.'
+      redirect_to @service, notice: 'Booking successful.'
     else
-      flash[:alert] = "Reservation failed: #{booking_errors_message}"
+      flash[:alert] = "Booking failed: #{booking_errors_message}"
       redirect_to @service
     end
   end
