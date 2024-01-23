@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :first_name, :last_name
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -6,7 +8,6 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   # custom validation
-  validates :username, presence: true, uniqueness: true
 
   def full_name
     "#{first_name} #{last_name}"
