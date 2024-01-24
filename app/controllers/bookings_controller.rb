@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @bookings = Booking.all
+  end
+
   def new
     if params[:service_id]
       @service = Service.find(params[:service_id])
