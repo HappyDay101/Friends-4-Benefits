@@ -1,18 +1,12 @@
-<h1><%= @service.service_name %></h1>
-<p><%= @service.description %></p>
-
-<% if @bookings.any? %>
-  <h2>Bookings</h2>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        Booked by: <%= booking.user.email %>
-        from: <%= booking.start_date %> to <%= booking.end_date %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No bookings for this service yet.</p>
-<% end %>
-
-<%= render 'bookings/form', booking: @booking %>
+<div class="service-details">
+  <div class="picture">
+    <%= image_tag @service.picture_url, alt: "Service Picture" %>
+  </div>
+  <div class="text-details">
+    <strong><%= @service.user.full_name %></strong>
+    <br>
+    <strong><%= @service.service_name %></strong>
+    <p class="text-muted"><%= @service.description %></p>
+    <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
+  </div>
+</div>
