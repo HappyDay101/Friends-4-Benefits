@@ -7,6 +7,8 @@ class Booking < ApplicationRecord
 
   enum status: { pending: 0, confirmed: 1, canceled: 2 }
 
+  attr_accessor :name, :email, :email_confirmation, :phone, :booking_date
+
   private
 
   def start_date_before_end_date

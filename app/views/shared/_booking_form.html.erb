@@ -1,4 +1,4 @@
-<%= simple_form_for @service.bookings.build, url: service_bookings_path(@service), method: :post, wrapper: :vertical_form do |form| %>
+<%= simple_form_for Booking.new, url: service_bookings_path(@service), method: :post, wrapper: :vertical_form do |form| %>
   <%= form.input :name, placeholder: 'Name' %>
   <%= form.input :email, placeholder: 'Email' %>
   <%= form.input :email_confirmation, placeholder: 'Confirm Email' %>
