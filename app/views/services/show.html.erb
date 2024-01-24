@@ -37,8 +37,8 @@
       <div class="pricing-ratings mt-4">
         <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
         <div class="ratings">
-          <%= render partial: 'shared/star_rating', locals: { rating: 4.5 } %> <!-- Replace 4.5 with your desired fake rating -->
-          (<%= pluralize(42, 'review') %>) <!-- Replace 42 with your desired fake reviews count -->
+          <%= render partial: 'shared/star_rating', locals: { rating: rand(0.0..5.0).round(1) } %>
+          (<%= rand(1..50) %> reviews)
         </div>
       </div>
 
