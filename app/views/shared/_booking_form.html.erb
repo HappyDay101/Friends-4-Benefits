@@ -1,0 +1,11 @@
+<%= simple_form_for @service.bookings.build, url: service_bookings_path(@service), method: :post, wrapper: :vertical_form do |form| %>
+  <%= form.input :name, placeholder: 'Name' %>
+  <%= form.input :email, placeholder: 'Email' %>
+  <%= form.input :email_confirmation, placeholder: 'Confirm Email' %>
+  <%= form.input :phone, placeholder: 'Phone' %>
+  <%= form.input :booking_date, as: :string, placeholder: 'dd-mm-yy', input_html: { class: 'datepicker' } %>
+
+  <div class="orange-boxes">
+    <%= form.button :submit, 'Check Availability', class: 'orange-button' %>
+  </div>
+<% end %>
