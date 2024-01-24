@@ -1,12 +1,47 @@
-<div class="service-details">
-  <div class="picture">
-    <%= image_tag @service.picture_url, alt: "Service Picture" %>
+<div class="container">
+  <div class="service-details">
+    <div class="picture">
+      <%= image_tag 'https://placekitten.com/300/200', alt: "Service Picture" %>
+    </div>
+    <div class="text-details">
+      <strong><%= @service.user.full_name %></strong>
+      <br>
+      <strong><%= @service.service_name %></strong>
+      <p class="text-muted"><%= @service.description %></p>
+      <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
+    </div>
   </div>
-  <div class="text-details">
-    <strong><%= @service.user.full_name %></strong>
-    <br>
-    <strong><%= @service.service_name %></strong>
-    <p class="text-muted"><%= @service.description %></p>
-    <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
+
+  <div class="social-engagement">
+    <%= link_to "Facebook", '#' %>
+    <%= link_to "Instagram", '#' %>
+    <%= link_to "Website", '#' %>
+    <div class="engagement-buttons">
+      <button>❤️ <%= '#' %></button>
+      <button>💬 <%= '#' %></button>
+      <button>👁️ <%= '#' %></button>
+    </div>
+  </div>
+
+  <div class="pricing-ratings">
+    <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
+    <div class="ratings">
+      <%= render partial: 'shared/star_rating', locals: { rating: 4.5 } %> <!-- Replace 4.5 with your desired fake rating -->
+      (<%= pluralize(@service.reviews_count, 'review') %>)
+    </div>
+  </div>
+
+  <div class="more-details">
+    <h3>More Details</h3>
+    <p><strong>Service:</strong> <%= @service.service_details %></p>
+    <p><strong>Location:</strong> <%= @service.location %></p>
+    <p><strong>Not Included:</strong> <%= @service.not_included_details %></p>
+    <p><strong>Included:</strong> <%= @service.included_details %></p>
+  </div>
+
+  <div class="booking-card">
+    <h3>Book This Service</h3>
+    <p>Lorem ipsum</p>
+    <%= render 'shared/booking_form' %>
   </div>
 </div>
