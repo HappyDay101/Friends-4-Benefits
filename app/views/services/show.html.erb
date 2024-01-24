@@ -1,48 +1,63 @@
 <div class="container">
-  <div class="service-details">
-    <div class="picture">
-      <%= image_tag 'https://placekitten.com/300/200', alt: "Service Picture" %>
-    </div>
-    <div class="text-details">
-      <strong><%= @service.user.full_name %></strong>
-      <br>
-      <strong><%= @service.service_name %></strong>
-      <p class="text-muted"><%= @service.description %></p>
-      <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
-    </div>
-  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Service Details -->
+      <div class="service-details">
+        <!-- Image -->
+        <div class="picture">
+          <%= image_tag 'https://placekitten.com/300/200', alt: "Service Picture", class: "img-fluid" %>
+        </div>
+        <!-- Text Details -->
+        <div class="text-details">
+          <strong><%= @service.user.full_name %></strong>
+          <br>
+          <strong><%= @service.service_name %></strong>
+          <p class="text-muted"><%= @service.description %></p>
+          <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
+        </div>
+      </div>
 
-  <div class="social-engagement">
-    <%= link_to "Facebook", '#' %>
-    <%= link_to "Instagram", '#' %>
-    <%= link_to "Website", '#' %>
-    <div class="engagement-buttons">
-      <button>❤️ <%= '#' %></button>
-      <button>💬 <%= '#' %></button>
-      <button>👁️ <%= '#' %></button>
+      <!-- Social Engagement -->
+      <div class="social-engagement mt-4">
+        <!-- Social Links -->
+        <%= link_to "Facebook", '#', class: "mr-2" %>
+        <%= link_to "Instagram", '#', class: "mr-2" %>
+        <%= link_to "Website", '#' %>
+        <!-- Engagement Buttons -->
+        <div class="engagement-buttons mt-2">
+          <button class="btn btn-light">❤️ <%= '#' %></button>
+          <button class="btn btn-light">💬 <%= '#' %></button>
+          <button class="btn btn-light">👁️ <%= '#' %></button>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="pricing-ratings">
-    <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
-    <div class="ratings">
-      <%= render partial: 'shared/star_rating', locals: { rating: 4.5 } %> <!-- Replace 4.5 with your desired fake rating -->
-      (<%= pluralize(42, 'review') %>) <!-- Replace 42 with your desired fake reviews count -->
+    <div class="col-md-4">
+      <!-- Pricing and Ratings -->
+      <div class="pricing-ratings mt-4">
+        <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
+        <div class="ratings">
+          <%= render partial: 'shared/star_rating', locals: { rating: 4.5 } %> <!-- Replace 4.5 with your desired fake rating -->
+          (<%= pluralize(42, 'review') %>) <!-- Replace 42 with your desired fake reviews count -->
+        </div>
+      </div>
+
+      <!-- More Details -->
+      <div class="more-details mt-4">
+        <h3>More Details</h3>
+        <p><strong>Service:</strong> <%= @service.service_name %></p>
+        <p><strong>Location:</strong> <%= @service.location %></p>
+        <p><strong>Not Included:</strong> <%= "lorem ipsum" %></p>
+        <p><strong>Included:</strong> <%= "lorem ipsum" %></p>
+        <p><strong>Description:</strong> <%= @service.description %></p>
+      </div>
+
+      <!-- Booking Card -->
+      <div class="booking-card mt-4">
+        <h3>Book This Service</h3>
+        <p>Lorem ipsum</p>
+        <%= render 'shared/booking_form' %>
+      </div>
     </div>
-  </div>
-
-  <div class="more-details">
-  <h3>More Details</h3>
-    <p><strong>Service:</strong> <%= @service.service_name %></p>
-    <p><strong>Location:</strong> <%= @service.location %></p>
-    <p><strong>Not Included:</strong> <%= "lorem ipsum" %></p>
-    <p><strong>Included:</strong> <%= "lorem ipsum" %></p>
-    <p><strong>Description:</strong> <%= @service.description %></p>
-  </div>
-
-  <div class="booking-card">
-    <h3>Book This Service</h3>
-    <p>Lorem ipsum</p>
-    <%= render 'shared/booking_form' %>
   </div>
 </div>
