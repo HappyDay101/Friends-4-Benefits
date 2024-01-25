@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_071421) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string "status", default: "Pending"
+    t.string "status", default: "0"
     t.text "comment"
     t.bigint "user_id", null: false
     t.bigint "service_id", null: false
