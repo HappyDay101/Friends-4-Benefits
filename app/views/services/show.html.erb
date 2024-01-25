@@ -1,6 +1,7 @@
 <div class="container">
   <div class="back-button mb-3">
     <%= link_to "Back", services_path, class: "btn btn-secondary" %>
+    <%= link_to "Reserve this Service", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
   </div>
 
   <div class="row">
