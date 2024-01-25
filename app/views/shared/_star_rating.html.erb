@@ -1,0 +1,10 @@
+<% rating ||= rand(6) %>
+<% total_stars = 5 %>
+
+<% (1..total_stars).each do |i| %>
+  <% if i <= rating %>
+    ⭐️
+  <% else %>
+    ☆
+  <% end %>
+<% end %>
