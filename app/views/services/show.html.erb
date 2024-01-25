@@ -1,18 +1,67 @@
-<h1><%= @service.service_name %></h1>
-<p><%= @service.description %></p>
+<div class="container">
+  <div class="back-button mb-3">
+    <%= link_to "Back", services_path, class: "btn btn-secondary" %>
+  </div>
 
-<% if @bookings.any? %>
-  <h2>Bookings</h2>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        Booked by: <%= booking.user.email %>
-        from: <%= booking.start_date %> to <%= booking.end_date %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No bookings for this service yet.</p>
-<% end %>
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Service Details -->
+      <div class="service-details">
+        <!-- Image -->
+        <div class="picture">
+          <%= image_tag 'https://placekitten.com/300/200', alt: "Service Picture", class: "img-fluid" %>
+        </div>
+        <!-- Text Details -->
+        <div class="text-details">
+          <strong><%= @service.user.full_name %></strong>
+          <br>
+          <strong><%= @service.service_name %></strong>
+          <p class="text-muted"><%= @service.description %></p>
+          <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
+        </div>
+      </div>
 
-<%= render 'bookings/form', booking: @booking %>
+      <!-- Social Engagement -->
+      <div class="social-engagement mt-4">
+        <!-- Social Links -->
+        <%= link_to "Facebook", '#', class: "mr-2" %>
+        <%= link_to "Instagram", '#', class: "mr-2" %>
+        <%= link_to "Website", '#' %>
+        <!-- Engagement Buttons -->
+        <div class="engagement-buttons mt-2">
+          <button class="btn btn-light">❤️ <%= '#' %></button>
+          <button class="btn btn-light">💬 <%= '#' %></button>
+          <button class="btn btn-light">👁️ <%= '#' %></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <!-- Pricing and Ratings -->
+      <div class="pricing-ratings mt-4">
+        <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
+        <div class="ratings">
+          <%= render partial: 'shared/star_rating', locals: { rating: rand(0.0..5.0).round(1) } %>
+          (<%= rand(1..50) %> reviews)
+        </div>
+      </div>
+
+      <!-- More Details -->
+      <div class="more-details mt-4">
+        <h3>More Details</h3>
+        <p><strong>Service:</strong> <%= @service.service_name %></p>
+        <p><strong>Location:</strong> <%= @service.location %></p>
+        <p><strong>Not Included:</strong> <%= "lorem ipsum" %></p>
+        <p><strong>Included:</strong> <%= "lorem ipsum" %></p>
+        <p><strong>Description:</strong> <%= @service.description %></p>
+      </div>
+
+      <!-- Booking Card -->
+      <div class="booking-card mt-4">
+        <h3>Book This Service</h3>
+        <p>Lorem ipsum</p>
+        <%= render 'shared/booking_form' %>
+      </div>
+    </div>
+  </div>
+</div>

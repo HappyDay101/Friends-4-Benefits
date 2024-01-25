@@ -15,19 +15,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_235935) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "status", default: 0
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "status"
     t.text "comment"
     t.bigint "user_id", null: false
     t.bigint "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["end_date"], name: "index_bookings_on_end_date"
     t.index ["service_id"], name: "index_bookings_on_service_id"
-    t.index ["start_date"], name: "index_bookings_on_start_date"
     t.index ["user_id"], name: "index_bookings_on_user_id"
-    t.check_constraint "start_date < end_date", name: "start_date_before_end_date"
   end
 
   create_table "services", force: :cascade do |t|
