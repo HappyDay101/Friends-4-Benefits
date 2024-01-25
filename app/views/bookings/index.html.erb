@@ -1,0 +1,12 @@
+<h1>Bookings Index</h1>
+
+<% @bookings.each do |booking| %>
+  <ul>
+    <li><%= booking.user.full_name %></li>
+    <li><%= booking.service.service_name %></li>
+    <li><%= booking.start_date %></li>
+    <li><%= booking.end_date %></li>
+    <li><%= booking.comment %></li>
+    <li><%= booking.status %></li>
+  </ul>
+<% end %>
