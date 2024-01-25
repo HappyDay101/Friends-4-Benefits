@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :service
 
-  validates :user_id, :service_id, :start_date, :end_date, :name, presence: true
+  validates :user_id, :service_id, :start_date, :end_date, presence: true
   validate :start_date_before_end_date
 
   # enum status: { pending: 0, confirmed: 1, canceled: 2 }
