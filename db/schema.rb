@@ -15,10 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_071421) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-  make-bookings-index
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string "status", default: "pending"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
     t.text "comment"
     t.bigint "user_id", null: false
     t.bigint "service_id", null: false
