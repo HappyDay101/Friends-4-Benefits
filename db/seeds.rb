@@ -46,7 +46,7 @@ puts 'Creating 15 new bookings'
     start_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now + 3),
     end_date: Faker::Time.between(from: DateTime.now + 3, to: DateTime.now + 6),
     comment: Faker::Lorem.paragraph_by_chars,
-    status: false
+    status: [1, 2].sample = 1 ? "Pending" : "Booked"
   )
   puts "#{booking.start_date} has been created"
 end
