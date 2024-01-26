@@ -1,12 +1,65 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: rgb(255, 0, 0);
+//   background-color: rgb(226, 128, 0);
+// }
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgb(226, 128, 0); /* Set your desired background color */
 }
 
+.container-fluid{
+  width: 90%;
+  height: 90px;
+
+  // background-color: rgb(221, 144, 144);
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 80px;
+
+
+
 }
 
+.navbar-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+}
+.divli1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 80%;
+
+
+}
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.friendslogo{
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(255, 166, 0);
+
+}
+// .nav-item {
+//   display: flex;
+//   justify-content: flex-end;
+
+//   background-color: aqua;
+//   width: 100%;
+
+// }
+.login1{
+display: none;
+
 }
