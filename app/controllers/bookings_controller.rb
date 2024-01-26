@@ -17,10 +17,21 @@ class BookingsController < ApplicationController
 
   def create
     @service = Service.find(params[:service_id])
-    @booking = current_user.bookings.new(booking_params.merge(service: @service))
+
+    # Set the start_date and end_date based on pickup_date and dropoff_date
+    start_date = Date.parse(params[:booking][:pickup_date])
+    end_date = Date.parse(params[:booking][:dropoff_date])
+
+    @booking = current_user.bookings.new(
+      booking_params.merge(
+        service: @service,
+        start_date: start_date,
+        end_date: end_date
+      )
+    )
 
     if @booking.save
-      redirect_to @service, notice: 'Booking successful.'
+      redirect_to dashboard_path, notice: 'Booking successful.'
     else
       flash[:alert] = "Booking failed: #{booking_errors_message}"
       redirect_to @service
