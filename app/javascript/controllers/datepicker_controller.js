@@ -3,9 +3,7 @@ import flatpickr from "flatpickr"
 
 export default class extends Controller {
   connect() {
-    flatpickr(this.element, {
-      enableTime: false, // Set to true if you want to include time selection
-      dateFormat: "Y-m-d", // Adjust the date format as needed
-    });
+    console.log("Flatpickr is being initialized on:", this.element);
+    flatpickr(this.element);
   }
 }

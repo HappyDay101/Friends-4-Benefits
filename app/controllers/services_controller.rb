@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
     @service = Service.find_by(id: params[:id])
     @bookings = @service.bookings.includes(:user)
     @booking = Booking.new(
-      pickup_location: "Default Pickup Location",
+      pickup_location: "",
       pickup_date: Date.current, # Set default pickup date or initialize it based on your logic
       pickup_time: Time.current.strftime("%H:%M") # Set default pickup time or initialize it based on your logic
     ) # Change from @reservations to @bookings
