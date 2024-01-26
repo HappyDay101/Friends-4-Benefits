@@ -4,63 +4,56 @@
     <%= link_to "Reserve this Service", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
   </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <!-- Service Details -->
-      <div class="service-details">
-        <!-- Image -->
-        <div class="picture">
-          <%= image_tag 'https://placekitten.com/300/200', alt: "Service Picture", class: "img-fluid" %>
-        </div>
-        <!-- Text Details -->
-        <div class="text-details">
-          <strong><%= @service.user.full_name %></strong>
-          <br>
-          <strong><%= @service.service_name %></strong>
-          <p class="text-muted"><%= @service.description %></p>
-          <%= link_to "Checkout", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
-        </div>
-      </div>
+  <div class="card-product">
+    <%= image_tag 'https://placekitten.com/300/200', alt: "Service Picture", class: "img-fluid" %>
+    <div class="card-product-infos">
+      <h2><%= @service.user.full_name %></h2>
+      <br>
+      <%= @service.service_name %>
+      <p class="text-muted"><%= @service.description %></p>
+    </div>
+  </div>
 
-      <!-- Social Engagement -->
-      <div class="social-engagement mt-4">
-        <!-- Social Links -->
-        <%= link_to "Facebook", '#', class: "mr-2" %>
-        <%= link_to "Instagram", '#', class: "mr-2" %>
-        <%= link_to "Website", '#' %>
-        <!-- Engagement Buttons -->
-        <div class="engagement-buttons mt-2">
-          <button class="btn btn-light">❤️ <%= '#' %></button>
-          <button class="btn btn-light">💬 <%= '#' %></button>
-          <button class="btn btn-light">👁️ <%= '#' %></button>
-        </div>
+  <div class="col-md-8">
+    <!-- Social Engagement -->
+    <div class="social-engagement mt-4">
+      <!-- Social Links -->
+      <%= link_to "Facebook", '#', class: "mr-2" %>
+      <%= link_to "Instagram", '#', class: "mr-2" %>
+      <%= link_to "Website", '#' %>
+      <!-- Engagement Buttons -->
+      <div class="engagement-buttons mt-2">
+        <button class="btn btn-light">❤️ <%= '#' %></button>
+        <button class="btn btn-light">💬 <%= '#' %></button>
+        <button class="btn btn-light">👁️ <%= '#' %></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Form Bar -->
+  <div class="booking-form-bar mt-4 bg-orange text-white p-3">
+    <%= render 'shared/booking_form' %>
+  </div>
+
+  <div class="col-md-4">
+    <!-- Pricing and Ratings -->
+    <div class="pricing-ratings mt-4">
+      <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
+      <div class="ratings">
+        <%= render partial: 'shared/star_rating', locals: { rating: rand(0.0..5.0).round(1) } %>
+        (<%= rand(1..50) %> reviews)
       </div>
     </div>
 
-    <!-- Booking Form Bar -->
-    <div class="booking-form-bar mt-4 bg-orange text-white p-3">
-      <%= render 'shared/booking_form' %>
+    <!-- More Details -->
+    <div class="more-details mt-4">
+      <h3>More Details</h3>
+      <p><strong>Service:</strong> <%= @service.service_name %></p>
+      <p><strong>Location:</strong> <%= @service.location %></p>
+      <p><strong>Not Included:</strong> <%= "lorem ipsum" %></p>
+      <p><strong>Included:</strong> <%= "lorem ipsum" %></p>
+      <p><strong>Description:</strong> <%= @service.description %></p>
     </div>
-
-    <div class="col-md-4">
-      <!-- Pricing and Ratings -->
-      <div class="pricing-ratings mt-4">
-        <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
-        <div class="ratings">
-          <%= render partial: 'shared/star_rating', locals: { rating: rand(0.0..5.0).round(1) } %>
-          (<%= rand(1..50) %> reviews)
-        </div>
-      </div>
-
-      <!-- More Details -->
-      <div class="more-details mt-4">
-        <h3>More Details</h3>
-        <p><strong>Service:</strong> <%= @service.service_name %></p>
-        <p><strong>Location:</strong> <%= @service.location %></p>
-        <p><strong>Not Included:</strong> <%= "lorem ipsum" %></p>
-        <p><strong>Included:</strong> <%= "lorem ipsum" %></p>
-        <p><strong>Description:</strong> <%= @service.description %></p>
-      </div>
-    </div>
+  </div>
   </div>
 </div>
