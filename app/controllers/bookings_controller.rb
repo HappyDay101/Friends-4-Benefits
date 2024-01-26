@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :comment)
+    params.require(:booking).permit(:start_date, :end_date, :pickup_location, :pickup_date, :pickup_time, :dropoff_location, :dropoff_date, :dropoff_time)
   end
 
   def booking_errors_message
