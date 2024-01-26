@@ -1,24 +1,24 @@
 <%= simple_form_for [@service, @booking], wrapper: :vertical_form do |form| %>
   <h2>Pick Up Location</h2>
   <div class="field">
-    <%= form.input :pickup_location, placeholder: 'Enter pickup location' %>
+    <%= form.input :pickup_location, required: true, input_html: { name: 'booking[pickup_location]' } %>
   </div>
 
   <h2>Pick Up Date and Time</h2>
   <div class="pick-up">
-    <%= form.input :pickup_date, as: :string, placeholder: 'Pickup Date', input_html: { data: { controller: 'datepicker' } } %>
-    <%= form.input :pickup_time, as: :string, placeholder: 'Pickup Time', input_html: { data: { controller: 'timepicker' } } %>
+    <%= form.input :pickup_date, as: :string, placeholder: 'Pickup Date', input_html: { data: { controller: 'datepicker' } }, required: true, input_html: { name: 'booking[pickup_date]' } %>
+    <%= form.input :pickup_time, as: :string, placeholder: 'Pickup Time', input_html: { data: { controller: 'timepicker' } }, required: true, input_html: { name: 'booking[pickup_time]' } %>
   </div>
 
   <h2>Drop-off Date and Time</h2>
   <div class="drop-off">
-    <%= form.input :dropoff_date, as: :string, placeholder: 'Drop-off Date', input_html: { data: { controller: 'datepicker' } } %>
-    <%= form.input :dropoff_time, as: :string, placeholder: 'Drop-off Time', input_html: { data: { controller: 'timepicker' } } %>
+    <%= form.input :dropoff_date, as: :string, placeholder: 'Drop-off Date', input_html: { data: { controller: 'datepicker' } }, required: true, input_html: { name: 'booking[dropoff_date]' } %>
+    <%= form.input :dropoff_time, as: :string, placeholder: 'Drop-off Time', input_html: { data: { controller: 'timepicker' } }, required: true, input_html: { name: 'booking[dropoff_time]' } %>
   </div>
 
   <h2>Location</h2>
   <div class="field">
-    <%= form.input :dropoff_location, placeholder: 'Enter drop-off location' %>
+    <%= form.input :dropoff_location, required: true, input_html: { name: 'booking[dropoff_location]' } %>
   </div>
 
   <div class="actions">
