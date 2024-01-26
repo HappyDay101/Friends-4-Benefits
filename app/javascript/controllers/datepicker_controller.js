@@ -3,6 +3,7 @@ import flatpickr from "flatpickr"
 
 export default class extends Controller {
   connect() {
-    flatpickr(this.element)
+    console.log("Flatpickr is being initialized on:", this.element);
+    flatpickr(this.element);
   }
 }
