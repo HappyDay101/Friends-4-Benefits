@@ -1,0 +1,43 @@
+.loginbox{
+  display: flex;
+  flex-direction: row;
+  height: 99%;
+  background-color: white;
+
+}
+.imgbox{
+  height: 100%;
+  // margin: 0 auto;
+}
+.rightbox{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+
+  // padding-right: 90px;
+  // padding-bottom: 30px;
+}
+
+.loginformbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 80%;
+
+
+  }
+  h2{
+  font-size: 40px;
+
+  }
+  .imgbox{
+    width: 50%;
+
+  }
+  .form-actions{
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgb(255, 175, 27);
+    text-align: center;
+  }
