@@ -1,9 +1,16 @@
 import { Application } from "@hotwired/stimulus"
+import flatpickr from "flatpickr";
 
-const application = Application.start()
+// Start Stimulus application
+const application = Application.start();
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+import DatepickerController from "./datepicker_controller";
+import TimepickerController from "./timepicker_controller";
 
-export { application }
+application.register("datepicker", DatepickerController);
+application.register("timepicker", TimepickerController);
+
+application.debug = false;
+window.Stimulus = application;
+
+export { application };
