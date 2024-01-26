@@ -1,10 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-navbar">
   <div class="container-fluid">
 
-    <%= link_to "#", class: "navbar-brand" do %>
+   <%= link_to root_path, class: "navbar-brand" do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-      <h1 class="friendslogo">friends</h1>
+      <h1 class="friendslogo" >friends</h1>
     <% end %>
+
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,16 +17,16 @@
       <div class="divli1">
         <% if user_signed_in? %>
 
-          <li class="nav-item">
+          <li class="nav-item zoom">
             <%= link_to "Services", services_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item zoom">
             <%= link_to "Bookings", dashboard_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item zoom">
             <%= link_to "Reviews", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item zoom">
             <%= link_to "About Us", "#", class: "nav-link" %>
           </li>
           </div>
