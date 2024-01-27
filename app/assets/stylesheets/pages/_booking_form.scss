@@ -1,14 +1,72 @@
-// .booking-form {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   width: 100%;
-//   background-color: orange;
-// }
-
-.booking-bar {
+.simple-form-booking {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.row.form-div {
+  display: flex;
+  flex-wrap: nowrap; // Prevents wrapping
+  align-items: center;
+  justify-content: center;
+  background: #F2A156;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-block: 10px;
+  padding-inline: 0;
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+}
+
+.row.form-div > div {
+  flex-shrink: 0; // Prevents the columns from shrinking
+  margin-right: 16px; // Adjust the space between the columns
+  &:last-child {
+    margin-right: 0; // Removes the margin for the last column
+  }
+}
+
+.form-div h3 {
+  color: white;
+  font-size: 14px;
+  margin-right: 8px; /* Add space between title and input */
+}
+
+// Specific overrides for column flex-basis
+.form-div col-4 { flex: 0 0 calc(20% - 16px); }
+.form-div col-1 { flex: 0 0 calc(15% - 16px); }
+.form-div col-2 { flex: 0 0 calc(20% - 16px); }
+
+.input-field {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 12px 10px; // Adjust padding as needed
+  margin-right: 8px; // Adds a margin to the right of each input
+  &:focus {
+    border-color: #F2A156; // Highlight on focus
+  }
+}
+
+.search-button {
+  flex: 0 0 auto;
+  background-color: #333; // Dark background for search button
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 12px 11px;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(#333, 10%);
+  }
+}
+
+// If you have labels visible, style them as well
+.simple_form label {
+  display: none; // Hide labels if not needed
+  // Or style them if you want them visible
 }
