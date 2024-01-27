@@ -18,15 +18,15 @@ class BookingsController < ApplicationController
   def create
     @service = Service.find(params[:service_id])
 
-    # Set the start_date and end_date based on pickup_date and dropoff_date
-    start_date = Date.parse(params[:booking][:pickup_date])
-    end_date = Date.parse(params[:booking][:dropoff_date])
+    # Convert the time strings to Time objects using Time.parse
+    start_time = Time.parse(params[:booking][:start_time])
+    end_time = Time.parse(params[:booking][:end_time])
 
     @booking = current_user.bookings.new(
       booking_params.merge(
         service: @service,
-        start_date: start_date,
-        end_date: end_date
+        start_date: start_time,
+        end_date: end_time
       )
     )
 
