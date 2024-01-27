@@ -24,18 +24,22 @@ puts "Users are done!"
 # Seed Services
 japanese_cities = ['Tokyo', 'Osaka', 'Kyoto', 'Sapporo', 'Fukuoka', 'Nagoya', 'Yokohama', 'Kobe', 'Hiroshima', 'Sendai']
 puts 'Creating 10 new services'
-10.times do
-  service = Service.create!(
-    user: User.all.sample,
-    service_name: "#{['Date', 'Friend', 'Food Buddy', 'Adventure Companion', 'Code Helper', 'Fake Fiance', 'Fake Groom', 'Cult Follower', 'Emo Buddies', 'Sport Activity', 'Road Trip', 'Drinking Buddy'].sample}",
-    description: Faker::Lorem.paragraph,
-    category: ['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample,
-    price: Faker::Commerce.price,
-    location: japanese_cities.sample
-  )
-  puts "#{service.service_name} has been created"
-end
+
+file = File.open(File.join(Rails.root,'app/assets/images/date.jpg'))
+date_service = Service.create!(
+  user: User.all.sample,
+  service_name: "Date",
+  description: Faker::Lorem.paragraph,
+  category: ['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample,
+  price: Faker::Commerce.price,
+  location: japanese_cities.sample
+)
+date_service.photo.attach(io: file, filename: "date.jpg", content_type: "image/jpg")
+puts "#{date_service.service_name} has been created"
+
 puts 'Services are done!'
+
+#{['Date', 'Friend', 'Food Buddy', 'Adventure Companion', 'Code Helper', 'Fake Fiance', 'Fake Groom', 'Cult Follower', 'Emo Buddies', 'Sport Activity', 'Road Trip', 'Drinking Buddy'].sample}
 
 # Seed Bookings
 puts 'Creating 15 new bookings'
