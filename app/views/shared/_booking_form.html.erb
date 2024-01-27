@@ -1,27 +1,29 @@
-<%= simple_form_for [@service, @booking], wrapper: :vertical_form do |form| %>
-  <h2>Pick Up Location</h2>
-  <div class="field">
-    <%= form.input :pickup_location, required: true, input_html: { name: 'booking[pickup_location]', placeholder: 'Enter pickup location' } %>
-  </div>
+<div class="simple-form-booking">
+  <%= simple_form_for [@service, @booking], wrapper: :vertical_form do |form| %>
+    <h2>Pick Up Location</h2>
+    <div class="field">
+      <%= form.input :pickup_location, required: true, input_html: { name: 'booking[pickup_location]', placeholder: 'Enter pickup location' } %>
+    </div>
 
-  <h2>Pick Up Date and Time</h2>
-  <div class="pick-up">
-    <%= form.input :pickup_date, as: :string, required: true, input_html: { name: 'booking[pickup_date]', placeholder: 'Pickup Date', data: { controller: 'datepicker' } } %>
-    <%= form.input :pickup_time, as: :string, required: true, input_html: { name: 'booking[pickup_time]', placeholder: 'Pickup Time', data: { controller: 'timepicker' } } %>
-  </div>
+    <h2>Pick Up Date and Time</h2>
+    <div class="field pick-up">
+      <%= form.input :pickup_date, as: :string, required: true, input_html: { name: 'booking[pickup_date]', placeholder: 'Pickup Date', data: { controller: 'datepicker' } } %>
+      <%= form.input :pickup_time, as: :string, required: true, input_html: { name: 'booking[pickup_time]', placeholder: 'Pickup Time', data: { controller: 'timepicker' } } %>
+    </div>
 
-  <h2>Drop-off Date and Time</h2>
-  <div class="drop-off">
-    <%= form.input :dropoff_date, as: :string, required: true, input_html: { name: 'booking[dropoff_date]', placeholder: 'Drop-off Date', data: { controller: 'datepicker' } } %>
-    <%= form.input :dropoff_time, as: :string, required: true, input_html: { name: 'booking[dropoff_time]', placeholder: 'Drop-off Time', data: { controller: 'timepicker' } } %>
-  </div>
+    <h2>Drop-off Date and Time</h2>
+    <div class="field drop-off">
+      <%= form.input :dropoff_date, as: :string, required: true, input_html: { name: 'booking[dropoff_date]', placeholder: 'Drop-off Date', data: { controller: 'datepicker' } } %>
+      <%= form.input :dropoff_time, as: :string, required: true, input_html: { name: 'booking[dropoff_time]', placeholder: 'Drop-off Time', data: { controller: 'timepicker' } } %>
+    </div>
 
-  <h2>Location</h2>
-  <div class="field">
-    <%= form.input :dropoff_location, required: true, input_html: { name: 'booking[dropoff_location]', placeholder: 'Enter drop-off location' } %>
-  </div>
+    <h2>Location</h2>
+    <div class="field">
+      <%= form.input :dropoff_location, required: true, input_html: { name: 'booking[dropoff_location]', placeholder: 'Enter drop-off location' } %>
+    </div>
 
-  <div class="actions">
-    <%= form.button :submit, 'Checkout', class: 'orange-button' %>
-  </div>
-<% end %>
+    <div class="field actions">
+      <%= form.button :submit, 'Checkout', class: 'orange-button' %>
+    </div>
+  <% end %>
+</div>

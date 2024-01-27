@@ -6,9 +6,17 @@
 //   background-color: orange;
 // }
 
-.booking-bar {
+.simple-form-booking {
   display: flex;
   justify-content: space-between;
   width: 80%;
   margin: 0 auto;
+  background: #F2A156;
+  color: white;
+}
+
+.simple-form-booking label {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
 }
