@@ -2,15 +2,18 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  width: 100%;
 }
 
 .row.form-div {
   display: flex;
   flex-wrap: nowrap; // Prevents wrapping
   align-items: center;
+  justify-content: center;
   background: #F2A156;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding-block: 10px;
+  padding-inline: 0;
   width: 100%;
   max-width: 90%;
   margin: auto;
