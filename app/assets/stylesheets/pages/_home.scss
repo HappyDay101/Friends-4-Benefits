@@ -11,3 +11,78 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.person-card {
+  text-align: center;
+  margin: 20px;
+}
+
+.person-card img {
+  width: 200px; /* or fixed width, e.g., 200px */
+  height: auto; /* maintain aspect ratio */
+  border-radius: 10%; /* if you want round images */
+  margin-bottom: -20%;
+}
+
+.person-card h3 {
+  color: white;
+}
+
+.person-card button {
+  background-color: #F2A156;
+  color: white;
+  border-radius: 8px;
+  font-size: 12px;
+  width: 25%;
+}
+
+/* reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the hero section */
+.hero {
+  text-align: center;
+  padding: 50px;
+}
+
+/* Style the featured people section */
+.featured-people {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.person-card {
+  text-align: center;
+}
+
+/* Style the testimonials section */
+.testimonials blockquote {
+  background-color: #f0f0f0; /* Light grey background */
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Style the gallery */
+.friendship-gallery .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery img {
+  width: 200px; /* Adjust as needed */
+  margin: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333; /* Dark background for the footer */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
