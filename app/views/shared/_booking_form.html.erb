@@ -3,7 +3,7 @@
     <div class="row form-div">
       <div class="col-4">
         <h3>Pickup Location</h3>
-        <%= form.input :pickup_location, required: true, input_html: { name: 'booking[pickup_location]', placeholder: 'Enter pickup location', class: 'input-field' } %>
+        <%= form.input :pickup_location, required: true, input_html: { name: 'booking[pickup_location]', placeholder: 'Enter pickup location'} %>
       </div>
       <div class="col-1">
         <h3>Pickup Date</h3>
@@ -17,13 +17,13 @@
         <h3>Dropoff Time</h3>
         <%= form.input :dropoff_date, as: :string, required: true, input_html: { name: 'booking[dropoff_date]', placeholder: 'Drop-off Date', data: { controller: 'datepicker' } } %>
       </div>
-      <div class="col-2">
+      <div class="col-1">
         <h3>Dropoff Time</h3>
         <%= form.input :dropoff_time, as: :string, required: true, input_html: { name: 'booking[dropoff_time]', placeholder: 'Drop-off Time', data: { controller: 'timepicker' } } %>
       </div>
-      <div class="col-1">
+      <div class="col-2">
         <h3>Location</h3>
-        <%= form.input :dropoff_location, required: true, label: 'Location', input_html: { class: 'input-field', placeholder: 'tokyo' } %>
+        <%= form.input :dropoff_location, required: true, label: 'Location', input_html: { name: 'booking[pickup_location]', placeholder: 'tokyo' } %>
       </div>
       <div class="col-1">
         <%= form.button :submit, 'Search', class: 'search-button' %>

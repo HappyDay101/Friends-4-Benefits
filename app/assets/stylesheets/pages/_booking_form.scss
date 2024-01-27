@@ -1,20 +1,27 @@
 .simple-form-booking {
   display: flex;
   justify-content: center;
-  margin-top: 20px; // Adjust as per your layout
+  margin-top: 20px;
 }
 
-.form-div {
+.row.form-div {
   display: flex;
-  flex-wrap: nowrap; /* Ensure items do not wrap */
+  flex-wrap: nowrap; // Prevents wrapping
+  align-items: center;
   background: #F2A156;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  align-items: center;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
-  max-width: 1185px;
+  max-width: 90%;
   margin: auto;
-  font-size: 14px;
+}
+
+.row.form-div > div {
+  flex-shrink: 0; // Prevents the columns from shrinking
+  margin-right: 16px; // Adjust the space between the columns
+  &:last-child {
+    margin-right: 0; // Removes the margin for the last column
+  }
 }
 
 .form-div h3 {
@@ -23,21 +30,10 @@
   margin-right: 8px; /* Add space between title and input */
 }
 
-.col-1, .col-2, .col-4 {
-  margin-right: 16px; /* Adjust the space between the columns */
-}
-
-.col-4 {
-  flex: 0 0 33%; /* Adjust this value based on your design */
-}
-
-.col-1 {
-  flex: 0 0 15%; /* Adjust this value based on your design */
-}
-
-.col-2 {
-  flex: 0 0 20%; /* Adjust this value based on your design */
-}
+// Specific overrides for column flex-basis
+.form-div col-4 { flex: 0 0 calc(20% - 16px); }
+.form-div col-1 { flex: 0 0 calc(15% - 16px); }
+.form-div col-2 { flex: 0 0 calc(20% - 16px); }
 
 .input-field {
   width: 100%;
@@ -45,7 +41,7 @@
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 12px 16px; // Adjust padding as needed
+  padding: 12px 10px; // Adjust padding as needed
   margin-right: 8px; // Adds a margin to the right of each input
   &:focus {
     border-color: #F2A156; // Highlight on focus
@@ -58,7 +54,7 @@
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 11px;
   text-transform: uppercase;
   cursor: pointer;
   &:hover {
