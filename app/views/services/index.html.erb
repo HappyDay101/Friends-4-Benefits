@@ -19,7 +19,33 @@
         <!-- Wrap the card content in a link to the show page -->
         <%= link_to service_path(service) do %>
           <div class="card">
-            <img src="https://placekitten.com/300/200" class="card-img-top" alt="Service Image">
+            <% if service.service_name === 'Date' %>
+              <%= image_tag "date.jpg", class:"card-img-top", alt: "Date Image" %>
+            <% elsif service.service_name === 'Friend' %>
+              <%= image_tag "friend.jpg", class:"card-img-top", alt: "Friend Image" %>
+            <% elsif service.service_name === 'Food Buddy' %>
+              <%= image_tag "food.jpeg", class:"card-img-top", alt: "Food Image" %>
+            <% elsif service.service_name === 'Adventure Companion' %>
+              <%= image_tag "adventure.jpg", class:"card-img-top", alt: "Adventure Image" %>
+            <% elsif service.service_name === 'Code Helper' %>
+              <%= image_tag "code.jpg", class:"card-img-top", alt: "Coding Image" %>
+            <% elsif service.service_name === 'Fake Fiance' %>
+              <%= image_tag "marriage.jpg", class:"card-img-top", alt: "Marriage Image" %>
+            <% elsif service.service_name === 'Fake Groom' %>
+              <%= image_tag "marriage.jpg", class:"card-img-top", alt: "Marriage Image" %>
+            <% elsif service.service_name === 'Cult Follower' %>
+              <%= image_tag "cult.jpg", class:"card-img-top", alt: "Cult Image" %>
+            <% elsif service.service_name === 'Emo Buddies' %>
+              <%= image_tag "emo.jpg", class:"card-img-top", alt: "Emo Image" %>
+            <% elsif service.service_name === 'Sport Activity' %>
+              <%= image_tag "sports.jpg", class:"card-img-top", alt: "Sport Image" %>
+            <% elsif service.service_name === 'Road Trip' %>
+              <%= image_tag "road.jpg", class:"card-img-top", alt: "Road Trip Image" %>
+            <% elsif service.service_name === 'Drinking Buddy' %>
+              <%= image_tag "drinks.jpg", class:"card-img-top", alt: "Drinking Image" %>
+            <% else %>
+              <img src="https://placekitten.com/300/200" class="card-img-top" alt="Service Image">
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= link_to service.service_name, service_path(service), class: "text-decoration-none" %></h5>
               <p class="card-text"><%= service.description %></p>
