@@ -2,7 +2,7 @@
   <%= simple_form_for [@service, @booking], wrapper: :vertical_form do |form| %>
     <div class="row form-div">
       <div class="col-4">
-      <h3>Pickup Location</h3>
+        <h3>Pickup Location</h3>
         <%= form.input :pickup_location, required: true, input_html: { name: 'booking[pickup_location]', placeholder: 'Enter pickup location', class: 'input-field' } %>
       </div>
       <div class="col-1">
