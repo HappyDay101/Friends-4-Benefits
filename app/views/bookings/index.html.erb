@@ -97,7 +97,7 @@
         <table class="table table-hover table-borderless mt-4">
           <thead class="border-bottom">
             <tr>
-              <th scope="col">Order ID</th>
+              <th scope="col">Service</th>
               <th scope="col">Date</th>
               <th scope="col">Price</th>
               <th scope="col">Total Hours</th>
@@ -107,7 +107,7 @@
           <tbody>
             <% @bookings.each do |booking| %>
               <tr>
-                <th scope="row"><%= booking.id %></th>
+                <th scope="row"><%= booking.service.service_name %></th>
                 <td><%= booking.start_date %></td>
                 <td><%= booking.service.price %></td>
                 <td>Hours</td>
