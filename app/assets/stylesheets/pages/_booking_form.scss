@@ -1,22 +1,47 @@
-// .booking-form {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   width: 100%;
-//   background-color: orange;
-// }
-
 .simple-form-booking {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
-  background: #F2A156;
-  color: white;
+  justify-content: center;
+  margin-top: 20px; // Adjust as per your layout
 }
 
-.simple-form-booking label {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0;
+.form-div {
+  background: #F2A156;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between; // Spread out the child elements
+  align-items: center; // Ceanter them vertically
+  padding: 20px;
+  width: 100%; // Adjust width as necessary
+  max-width: 1185px; // Match your design's width
+  margin: auto; // Center the row in the middle of the page
+}
+
+.input-field {
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 12px 16px; // Adjust padding as needed
+  margin-right: 8px; // Adds a margin to the right of each input
+  &:focus {
+    border-color: #F2A156; // Highlight on focus
+  }
+}
+
+.search-button {
+  background-color: #333; // Dark background for search button
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(#333, 10%);
+  }
+}
+
+// If you have labels visible, style them as well
+.simple_form label {
+  display: none; // Hide labels if not needed
+  // Or style them if you want them visible
 }
