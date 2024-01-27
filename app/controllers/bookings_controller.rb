@@ -18,17 +18,20 @@ class BookingsController < ApplicationController
   def create
     @service = Service.find(params[:service_id])
 
-    # Set the start_date and end_date based on pickup_date and dropoff_date
-    start_date = Date.parse(params[:booking][:pickup_date])
-    end_date = Date.parse(params[:booking][:dropoff_date])
+    # start_time = Time.parse(params[:booking][:start_date])
+    # end_time = Time.parse(params[:booking][:end_date])
 
-    @booking = current_user.bookings.new(
-      booking_params.merge(
-        service: @service,
-        start_date: start_date,
-        end_date: end_date
-      )
-    )
+    # @booking = current_user.bookings.new(
+      # booking_params.merge(
+      #   service: @service,
+      #   start_date: start_date,
+      #   end_date: end_date
+      # )
+    # )
+
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.service = @service
 
     if @booking.save
       redirect_to dashboard_path, notice: 'Booking successful.'

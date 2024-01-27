@@ -9,11 +9,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find_by(id: params[:id])
     @bookings = @service.bookings.includes(:user)
-    @booking = Booking.new(
-      pickup_location: "",
-      pickup_date: nil, # Set default pickup date or initialize it based on your logic
-      pickup_time: nil # Set default pickup time or initialize it based on your logic
-    ) # Change from @reservations to @bookings
+    @booking = Booking.new()
   end
 
   private
