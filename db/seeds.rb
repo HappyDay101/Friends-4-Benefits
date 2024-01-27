@@ -27,7 +27,7 @@ puts 'Creating 10 new services'
 10.times do
   service = Service.create!(
     user: User.all.sample,
-    service_name: "#{['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample}: #{Faker::Lorem.words(number: 2).join(' ')}",
+    service_name: "#{['Date', 'Friend', 'Food Buddy', 'Adventure Companion', 'Code Helper', 'Fake Fiance', 'Fake Groom', 'Cult Follower', 'Emo Buddies', 'Sport Activity', 'Road Trip', 'Drinking Buddy'].sample}",
     description: Faker::Lorem.paragraph,
     category: ['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample,
     price: Faker::Commerce.price,
