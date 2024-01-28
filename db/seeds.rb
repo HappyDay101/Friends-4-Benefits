@@ -1,6 +1,7 @@
 # db/seeds.rb
 # Ensure Faker is loaded
 require 'faker'
+require "open-uri"
 
 # Clear previous records
 puts 'Destroying all previous records'
@@ -25,16 +26,19 @@ puts "Users are done!"
 japanese_cities = ['Tokyo', 'Osaka', 'Kyoto', 'Sapporo', 'Fukuoka', 'Nagoya', 'Yokohama', 'Kobe', 'Hiroshima', 'Sendai']
 puts 'Creating 10 new services'
 
-file = File.open(File.join(Rails.root,'app/assets/images/date.jpg'))
-date_service = Service.create!(
+file = URI.open("https://res.cloudinary.com/du0bsrgmp/image/upload/v1706329816/Friends%204%20Benefits/date_brbgho.jpg")
+
+date_service = Service.new(
   user: User.all.sample,
   service_name: "Date",
   description: Faker::Lorem.paragraph,
-  category: ['Date', 'Friend', 'Food Buddy', 'Adventure Companion'].sample,
+  category: "Date",
   price: Faker::Commerce.price,
   location: japanese_cities.sample
 )
 date_service.photo.attach(io: file, filename: "date.jpg", content_type: "image/jpg")
+date_service.save
+
 puts "#{date_service.service_name} has been created"
 
 puts 'Services are done!'
