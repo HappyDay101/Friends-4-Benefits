@@ -6,6 +6,19 @@ class ServicesController < ApplicationController
     @services = Service.all
   end
 
+  def new
+    @service = Service.new
+  end
+
+  def create
+    @service = List.new(service_params)
+    if @service.save
+      redirect_to services_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def show
     @service = Service.find_by(id: params[:id])
     @bookings = @service.bookings.includes(:user)
@@ -17,6 +30,10 @@ class ServicesController < ApplicationController
   end
 
   private
+
+  def service_params
+    params.require(:service).permit(:service_name, :location, :category, :description, :price, :photo)
+  end
 
   def set_service
     @service = Service.find_by(id: params[:id])
