@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
   validate :start_date_before_end_date
 
   # enum status: { pending: 0, confirmed: 1, canceled: 2 }
+  
   private
 
   def start_date_before_end_date
