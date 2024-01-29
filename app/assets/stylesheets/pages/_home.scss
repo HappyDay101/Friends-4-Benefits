@@ -86,3 +86,25 @@ footer {
   padding: 20px;
   text-align: center;
 }
+// people service
+.personimg{
+  background-color: #F2A156;
+  height: 250px;
+}
+.featured-people{
+  display: flex;
+  flex-direction: column;
+  height: 900px;
+  justify-content: space-evenly;
+}
+.servicespeople{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.person-card{
+  width: auto;
+  height: 150px;
+}

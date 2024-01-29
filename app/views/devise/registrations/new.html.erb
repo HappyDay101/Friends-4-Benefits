@@ -21,14 +21,20 @@
       <%= f.error_notification %>
 
       <div class="form-inputs rightform2">
-        <%= f.input :first_name, required: true, autofocus: true, input_html: { autocomplete: "first_name" } %>
+        <p>name</p>
+        <%= f.input :first_name, label: "Name",required: true, autofocus: true, input_html: { autocomplete: "first_name"} %>
+        <p>surname</p>
         <%= f.input :last_name, required: true, autofocus: true, input_html: { autocomplete: "last_name" } %>
+        <p>email</p>
         <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
+        <p>pasword</p>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+        <p>repeat pasword</p>
         <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
       </div>
-
+        <br>
         <div class="form-actions">
+
           <%= f.button :submit, "Sign up" %>
         </div>
       <% end %>
