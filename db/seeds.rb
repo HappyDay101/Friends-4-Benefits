@@ -10,8 +10,8 @@ Service.destroy_all
 Booking.destroy_all
 
 # Seed Users
-puts 'Creating 5 new users'
-5.times do
+puts 'Creating 108 new users'
+108.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -20,7 +20,7 @@ puts 'Creating 5 new users'
   )
   puts "#{user.first_name} has been created"
 end
-puts "Users are done!"
+puts "All users are done!"
 
 # Seed Services
 puts 'Creating 12 new services'
@@ -49,7 +49,7 @@ services.each do |name, info|
     service_name: name,
     description: Faker::Lorem.paragraph,
     category: name,
-    price: Faker::Commerce.price,
+    price: Faker::Commerce.price(range: 3000..10_000),
     location: japanese_cities.sample
   )
   info[:image_urls].each do |image_url|
@@ -57,9 +57,10 @@ services.each do |name, info|
     file = URI.open(image_url)
     service.photos.attach(io: file, filename: 'service.jpg', content_type: 'image/jpg')
   end
+  puts "Service #{service.service_name} has been created!"
 end
 
-puts 'Services are done!'
+puts 'All services are done!'
 
 # Seed Bookings
 puts 'Creating 15 new bookings'
@@ -75,4 +76,4 @@ puts 'Creating 15 new bookings'
   puts "#{booking.start_date} has been created"
 end
 
-puts 'Bookings are done!'
+puts 'All bookings are done!'
