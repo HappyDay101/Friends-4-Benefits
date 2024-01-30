@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :services, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :bookings_as_owner, through: :services, source: :bookings
 
   def full_name
     "#{first_name} #{last_name}"
