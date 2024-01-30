@@ -114,15 +114,15 @@
                 <td><%= booking.status %></td>
                 <td>
                   <% if booking.pending? %>
-                    <%= simple_form_for booking, url: booking_path(booking), method: :put do |f| %>
-                      <%= f.hidden_field :status, value: 'accepted' %>
-                      <%= f.submit 'Accept', class: 'btn btn-success btn-sm' %>
+                      <%= simple_form_for booking, url: service_booking_path(booking.service, booking), method: :put do |f| %>
+                        <%= f.hidden_field :status, value: 'accepted' %>
+                        <%= f.submit 'Accept', class: 'btn btn-success btn-sm' %>
+                      <% end %>
+                      <%= simple_form_for booking, url: service_booking_path(booking.service, booking), method: :put do |f| %>
+                        <%= f.hidden_field :status, value: 'rejected' %>
+                        <%= f.submit 'Reject', class: 'btn btn-danger btn-sm' %>
+                      <% end %>
                     <% end %>
-                    <%= simple_form_for booking, url: booking_path(booking), method: :put do |f| %>
-                      <%= f.hidden_field :status, value: 'rejected' %>
-                      <%= f.submit 'Reject', class: 'btn btn-danger btn-sm' %>
-                    <% end %>
-                  <% end %>
                 </td>
               </tr>
             <% end %>
