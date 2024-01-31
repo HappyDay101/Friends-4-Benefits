@@ -1,1 +1,86 @@
-<h1>Display Users bookings</h1>
+<div class="row border">
+
+  <div class="dropdown d-grid gap-2 d-md-flex justify-content-end">
+    <div class="d-flex align-items-center">
+      <i class="fa-regular fa-bell"></i>
+    </div>
+    <button class="btn btn-light dropdown-toggle border m-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img class="avatar rounded align-middle me-2" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User avatar" />
+        Welcome back, <strong>User!</strong>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Account</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title text-muted">Dog Trainer</h5>
+      <h5 class="card-subtitle mt-2">$150.00</h6>
+    </div>
+  </div>
+
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title text-muted">Pro Training</h5>
+      <h5 class="card-subtitle mt-2">$200.00</h6>
+    </div>
+  </div>
+
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title text-muted">Add Service</h5>
+      <h5 class="card-subtitle mt-2"></h6>
+    </div>
+  </div>
+
+<h3 class="text-muted">Payment History</h3>
+
+  <div>
+    <button type="button" class="btn btn-light rounded-pill border">All</button>
+    <button type="button" class="btn btn-light rounded-pill border">Complete</button>
+    <button type="button" class="btn btn-light rounded-pill border">Pending</button>
+    <button type="button" class="btn btn-light rounded-pill border">Rejected</button>
+  </div>
+
+
+<div class="row">
+  <table class="table table-hover table-borderless mt-4">
+    <thead class="border-bottom">
+      <tr>
+        <th scope="col">Service</th>
+        <th scope="col">Date</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total Hours</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <th scope="row"><%= booking.service.service_name %></th>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.service.price %></td>
+          <td>Hours</td>
+          <td><%= booking.status %></td>
+          <td>
+            <% if booking.pending? %>
+                <%= simple_form_for booking, url: service_booking_path(booking.service, booking), method: :put do |f| %>
+                  <%= f.hidden_field :status, value: 'accepted' %>
+                  <%= f.submit 'Accept', class: 'btn btn-success btn-sm' %>
+                <% end %>
+                <%= simple_form_for booking, url: service_booking_path(booking.service, booking), method: :put do |f| %>
+                  <%= f.hidden_field :status, value: 'rejected' %>
+                  <%= f.submit 'Reject', class: 'btn btn-danger btn-sm' %>
+                <% end %>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+</div>
+
+</div>

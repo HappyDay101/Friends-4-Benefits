@@ -1,18 +1,23 @@
 <div class="container border">
   <div class="row border">
 
-    <div class="col-2 border">
+    <%# Bootstrap for side menu %>
+    <div class="border">
       <div class="d-flex align-items-start">
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <div class="col-2 nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Chat</button>
           <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Bookings</button>
           <button class="nav-link" id="v-pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-disabled" type="button" role="tab" aria-controls="v-pills-disabled" aria-selected="false" disabled>Disabled</button>
           <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">My Services</button>
           <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Customization</button>
         </div>
-        <div class="tab-content" id="v-pills-tabContent">
+        <div class=" col-10 tab-content" id="v-pills-tabContent">
           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">...</div>
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">...</div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+            <div class="d-flex">
+              <%= render 'shared/bookings' %>
+            </div>
+          </div>
           <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">...</div>
           <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">...</div>
           <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">...</div>
@@ -20,93 +25,5 @@
       </div>
     </div>
 
-    <div class="col-10">
-      <div class="row border">
-
-        <div class="dropdown d-grid gap-2 d-md-flex justify-content-end">
-          <div class="d-flex align-items-center">
-            <i class="fa-regular fa-bell"></i>
-          </div>
-          <button class="btn btn-light dropdown-toggle border m-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="avatar rounded align-middle me-2" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User avatar" />
-              Welcome back, <strong>User!</strong>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Account</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-          <div class="card-body">
-            <h6 class="card-title text-muted">Dog Trainer</h5>
-            <h5 class="card-subtitle mt-2">$150.00</h6>
-          </div>
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-          <div class="card-body">
-            <h6 class="card-title text-muted">Pro Training</h5>
-            <h5 class="card-subtitle mt-2">$200.00</h6>
-          </div>
-        </div>
-
-        <div class="card m-4" style="width: 18rem;">
-          <div class="card-body">
-            <h6 class="card-title text-muted">Add Service</h5>
-            <h5 class="card-subtitle mt-2"></h6>
-          </div>
-        </div>
-
-      <h3 class="text-muted">Payment History</h3>
-
-        <div>
-          <button type="button" class="btn btn-light rounded-pill border">All</button>
-          <button type="button" class="btn btn-light rounded-pill border">Complete</button>
-          <button type="button" class="btn btn-light rounded-pill border">Pending</button>
-          <button type="button" class="btn btn-light rounded-pill border">Rejected</button>
-        </div>
-
-
-      <div class="row">
-        <table class="table table-hover table-borderless mt-4">
-          <thead class="border-bottom">
-            <tr>
-              <th scope="col">Service</th>
-              <th scope="col">Date</th>
-              <th scope="col">Price</th>
-              <th scope="col">Total Hours</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @bookings.each do |booking| %>
-              <tr>
-                <th scope="row"><%= booking.service.service_name %></th>
-                <td><%= booking.start_date %></td>
-                <td><%= booking.service.price %></td>
-                <td>Hours</td>
-                <td><%= booking.status %></td>
-                <td>
-                  <% if booking.pending? %>
-                      <%= simple_form_for booking, url: service_booking_path(booking.service, booking), method: :put do |f| %>
-                        <%= f.hidden_field :status, value: 'accepted' %>
-                        <%= f.submit 'Accept', class: 'btn btn-success btn-sm' %>
-                      <% end %>
-                      <%= simple_form_for booking, url: service_booking_path(booking.service, booking), method: :put do |f| %>
-                        <%= f.hidden_field :status, value: 'rejected' %>
-                        <%= f.submit 'Reject', class: 'btn btn-danger btn-sm' %>
-                      <% end %>
-                    <% end %>
-                </td>
-              </tr>
-            <% end %>
-            </tbody>
-        </table>
-      </div>
-
-      </div>
-    </div>
   </div>
 </div>
