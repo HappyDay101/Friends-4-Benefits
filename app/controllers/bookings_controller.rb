@@ -50,6 +50,15 @@ class BookingsController < ApplicationController
 
   private
 
+  def update_status(status)
+    @booking = Booking.find(params[:id])
+    if @bookings.update(status: status)
+      redirect_to dashboard_path, notice: 'Booking status updated.'
+    else
+      render :index, alert: 'could not update booking status.'
+    end
+  end
+
   def booking_params
     params.require(:booking).permit(:user_id, :service_id, :start_date, :end_date)
   end
