@@ -29,6 +29,14 @@ class BookingsController < ApplicationController
       redirect_to @service
     end
 
+    def accept
+      update_status('accepted')
+    end
+
+    def reject
+      update_status('rejected')
+    end
+
     def update
       @booking = Booking.find(params[:id])
       if @booking.update(booking_params)
