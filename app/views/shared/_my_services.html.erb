@@ -6,7 +6,7 @@
     </div>
     <button class="btn btn-light dropdown-toggle border m-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       <img class="avatar rounded align-middle me-2" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User avatar" />
-        Welcome back, <strong>User!</strong>
+        Welcome back, <strong><%= current_user.first_name %></strong>
     </button>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
       <li><a class="dropdown-item" href="#">Account</a></li>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-<h3 class="text-muted">Payment History</h3>
+<h3 class="text-muted">Service Requests</h3>
 
   <div>
     <button type="button" class="btn btn-light rounded-pill border">All</button>
@@ -66,7 +66,7 @@
           <td><%= booking.end_date.strftime("%Y-%m-%d") %></td>
           <td><%= number_to_currency(booking.service.price) %></td>
           <td>Hours</td>
-          <td>
+          <td class="d-flex">
             <% if booking.pending? %>
               <%= form_with model: booking, url: accept_service_booking_path(booking.service, booking), method: :patch do |f| %>
                 <%= f.submit 'Accept', class: 'btn btn-success' %>

@@ -6,7 +6,7 @@
     </div>
     <button class="btn btn-light dropdown-toggle border m-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       <img class="avatar rounded align-middle me-2" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User avatar" />
-        Welcome back, <strong>User!</strong>
+        Welcome back, <strong><%= current_user.first_name %>!</strong>
     </button>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
       <li><a class="dropdown-item" href="#">Account</a></li>
@@ -17,26 +17,19 @@
 
   <div class="card m-4" style="width: 18rem;">
     <div class="card-body">
-      <h6 class="card-title text-muted">Dog Trainer</h5>
+      <h6 class="card-title text-muted">Total</h5>
       <h5 class="card-subtitle mt-2">$150.00</h6>
     </div>
   </div>
 
   <div class="card m-4" style="width: 18rem;">
     <div class="card-body">
-      <h6 class="card-title text-muted">Pro Training</h5>
+      <h6 class="card-title text-muted">Upcoming Bookings Total</h5>
       <h5 class="card-subtitle mt-2">$200.00</h6>
     </div>
   </div>
 
-  <div class="card m-4" style="width: 18rem;">
-    <div class="card-body">
-      <h6 class="card-title text-muted">Add Service</h5>
-      <h5 class="card-subtitle mt-2"></h6>
-    </div>
-  </div>
-
-<h3 class="text-muted">Payment History</h3>
+<h3 class="text-muted">Bookings</h3>
 
   <div>
     <button type="button" class="btn btn-light rounded-pill border">All</button>
@@ -68,7 +61,11 @@
           <td>Hours</td>
           <td>
             <% if booking.pending? %>
-              Pending <!-- or some other indication that the booking is pending -->
+              Pending
+            <% elsif booking.accepted? %>
+              Accepted
+            <% elsif booking.rejected? %>
+              Rejected
             <% else %>
               <%= booking.status.capitalize %>
             <% end %>
