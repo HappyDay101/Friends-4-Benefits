@@ -59,7 +59,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @bookings.each do |booking| %>
+      <% current_user.bookings_as_owner.each do |booking| %>
         <tr>
           <th scope="row"><%= booking.service.service_name %></th>
           <td><%= booking.start_date %></td>

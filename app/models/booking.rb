@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   # enum status: { pending: 0, confirmed: 1, canceled: 2 }
 
   def pending?
-    status.nil? || status == 'requested'
+    status.nil? || status == 'pending'
   end
 
   private
