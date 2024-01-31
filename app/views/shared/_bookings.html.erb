@@ -62,14 +62,20 @@
       <% @bookings.each do |booking| %>
         <tr>
           <th scope="row"><%= booking.service.service_name %></th>
-          <td><%= booking.start_date %></td>
-          <td><%= booking.end_date %></td>
-          <td><%= booking.service.price %></td>
+          <td><%= booking.start_date.strftime("%Y-%m-%d") %></td>
+          <td><%= booking.end_date.strftime("%Y-%m-%d") %></td>
+          <td><%= number_to_currency(booking.service.price) %></td>
           <td>Hours</td>
-          <td><%= booking.status %></td>
+          <td>
+            <% if booking.pending? %>
+              Pending <!-- or some other indication that the booking is pending -->
+            <% else %>
+              <%= booking.status.capitalize %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
-      </tbody>
+    </tbody>
   </table>
 </div>
 

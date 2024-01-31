@@ -30,32 +30,32 @@ class BookingsController < ApplicationController
     end
   end
 
-    def accept
-      update_status('accepted')
-    end
+  def accept
+    update_status('accepted')
+  end
 
-    def reject
-      update_status('rejected')
-    end
+  def reject
+    update_status('rejected')
+  end
 
-    def update
-      @booking = Booking.find(params[:id])
-      respond_to do |format|
-        if @booking.update(booking_params)
-          format.html { redirect_to dashboard_path, notice: 'Booking status updated.' }
-          format.json { render :show, status: :ok, location: @booking }
-        else
-          format.html { redirect_to dashboard_path, alert: @booking.errors.full_messages.to_sentence }
-          format.json { render json: @booking.errors, status: :unprocessable_entity }
-        end
+  def update
+    @booking = Booking.find(params[:id])
+    respond_to do |format|
+      if @booking.update(booking_params)
+        format.html { redirect_to dashboard_path, notice: 'Booking status updated.' }
+        format.json { render :show, status: :ok, location: @booking }
+      else
+        format.html { redirect_to dashboard_path, alert: @booking.errors.full_messages.to_sentence }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+  end
 
   private
 
   def update_status(status)
     @booking = Booking.find(params[:id])
-    if @bookings.update(status: status)
+    if @booking.update(status: status)
       redirect_to dashboard_path, notice: 'Booking status updated.'
     else
       render :index, alert: 'could not update booking status.'
@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :service_id, :start_date, :end_date)
+    params.require(:booking).permit(:user_id, :service_id, :start_date, :end_date, :status)
   end
 
   def booking_errors_message
