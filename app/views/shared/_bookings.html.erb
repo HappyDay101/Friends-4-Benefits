@@ -51,7 +51,8 @@
     <thead class="border-bottom">
       <tr>
         <th scope="col">Service</th>
-        <th scope="col">Date</th>
+        <th scope="col">Date Start</th>
+        <th scope="col">Date End</th>
         <th scope="col">Price</th>
         <th scope="col">Total Hours</th>
         <th scope="col">Status</th>
@@ -62,6 +63,7 @@
         <tr>
           <th scope="row"><%= booking.service.service_name %></th>
           <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
           <td><%= booking.service.price %></td>
           <td>Hours</td>
           <td><%= booking.status %></td>
