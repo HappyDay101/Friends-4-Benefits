@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
       flash[:alert] = "Booking failed: #{booking_errors_message}"
       redirect_to @service
     end
+  end
 
     def accept
       update_status('accepted')
@@ -39,14 +40,16 @@ class BookingsController < ApplicationController
 
     def update
       @booking = Booking.find(params[:id])
-      if @booking.update(booking_params)
-        redirect_to dashboard_path, notice: 'Booking Status Updated.'
-      else
-        flash[:alert] = "Failed to update booking status."
-        redirect_to dashboard_path
+      respond_to do |format|
+        if @booking.update(booking_params)
+          format.html { redirect_to dashboard_path, notice: 'Booking status updated.' }
+          format.json { render :show, status: :ok, location: @booking }
+        else
+          format.html { redirect_to dashboard_path, alert: @booking.errors.full_messages.to_sentence }
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
   private
 

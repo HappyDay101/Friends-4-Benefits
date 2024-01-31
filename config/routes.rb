@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :services, only: %i[index show new create edit update destroy] do
     resources :bookings, only: %i[create update] do
       member do
-        patch :accept
-        patch :reject
+        patch :accept, as: 'accept'
+        patch :reject, as: 'reject'
       end
-    end# Changed from :reservations to :bookings
+    end
   end
 
   get "dashboard", to: "bookings#index"
