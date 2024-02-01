@@ -24,9 +24,6 @@ class ServicesController < ApplicationController
     @bookings = @service.bookings.includes(:user)
     @booking = Booking.new()
       # review
-    @service = Service.find_by(id: params[:id])
-    @bookings = @service.bookings.includes(:user)
-    @booking = Booking.new
     @reviews = @service.reviews.includes(:user)
     @review = Review.new
   end
