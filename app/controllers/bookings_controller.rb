@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :service_id, :start_date, :end_date, :status)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
   def booking_errors_message

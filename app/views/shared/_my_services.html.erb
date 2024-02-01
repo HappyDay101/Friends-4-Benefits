@@ -68,11 +68,11 @@
           <td>Hours</td>
           <td class="d-flex">
             <% if booking.pending? %>
-              <%= simple_form_for booking, url: accept_service_booking_path(booking.service, booking) do |f| %>
+              <%= simple_form_for booking do |f| %>
                 <%= f.input :status, as: :hidden, input_html: {value: 'booked'} %>
                 <%= f.submit 'Book', class: 'btn btn-success' %>
               <% end %>
-              <%= simple_form_for booking, url: reject_service_booking_path(booking.service, booking) do |f| %>
+              <%= simple_form_for booking do |f| %>
                 <%= f.input :status, as: :hidden, input_html: {value: 'declined'} %>
                 <%= f.submit 'Decline', class: 'btn btn-danger' %>
               <% end %>
