@@ -70,7 +70,7 @@
 
 <div class="container border">
   <div class="row row-cols-3 border">
-    <% @service.photos.drop(1).each do |photo| %>
+    <% @service.photos.each do |photo| %>
       <div class="col border">
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       </div>
