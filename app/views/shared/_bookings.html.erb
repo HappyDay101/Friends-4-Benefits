@@ -62,10 +62,10 @@
           <td>
             <% if booking.pending? %>
               Pending
-            <% elsif booking.accepted? %>
-              Accepted
-            <% elsif booking.rejected? %>
-              Rejected
+            <% elsif booking.booked? %>
+              Booked
+            <% elsif booking.declined? %>
+              Declined
             <% else %>
               <%= booking.status.capitalize %>
             <% end %>

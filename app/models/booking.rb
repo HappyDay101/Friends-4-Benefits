@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   validates :user_id, :service_id, :start_date, :end_date, presence: true
   validate :start_date_before_end_date
 
-  enum status: { pending: 0, accepted: 1, rejected: 2 }
+  enum status: { pending: 0, booked: 1, declined: 2 }
 
   def pending?
     status.nil? || status == 'pending'

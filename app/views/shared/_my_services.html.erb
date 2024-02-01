@@ -59,7 +59,7 @@
       </tr>
     </thead>
     <tbody>
-      <% current_user.bookings_as_owner.each do |booking| %>
+      <% current_user.bookings_as_service.each do |booking| %>
         <tr>
           <th scope="row"><%= booking.service.service_name %></th>
           <td><%= booking.start_date.strftime("%Y-%m-%d") %></td>
@@ -68,11 +68,13 @@
           <td>Hours</td>
           <td class="d-flex">
             <% if booking.pending? %>
-              <%= form_with model: booking, url: accept_service_booking_path(booking.service, booking), method: :patch do |f| %>
-                <%= f.submit 'Accept', class: 'btn btn-success' %>
+              <%= simple_form_for booking, url: accept_service_booking_path(booking.service, booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: {value: 'booked'} %>
+                <%= f.submit 'Book', class: 'btn btn-success' %>
               <% end %>
-              <%= form_with model: booking, url: reject_service_booking_path(booking.service, booking), method: :patch do |f| %>
-                <%= f.submit 'Reject', class: 'btn btn-danger' %>
+              <%= simple_form_for booking, url: reject_service_booking_path(booking.service, booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: {value: 'declined'} %>
+                <%= f.submit 'Decline', class: 'btn btn-danger' %>
               <% end %>
             <% else %>
               <p class='booking-tag'><%= booking.status %></p>

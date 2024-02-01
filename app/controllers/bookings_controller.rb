@@ -30,12 +30,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  def accept
-    update_status('accepted')
+  def booked
+    update_status('booked')
   end
 
-  def reject
-    update_status('rejected')
+  def declined
+    update_status('declined')
   end
 
   def update
