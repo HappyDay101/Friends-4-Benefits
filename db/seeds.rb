@@ -14,7 +14,7 @@ Booking.destroy_all
 
 # Seed Users
 puts 'Creating 54 new users...'
-54.times do |i|
+providers = 54.times do |i|
   url = URI("https://randomuser.me/api/")
   response = Net::HTTP.get(url)
   json = JSON.parse(response)
@@ -65,6 +65,12 @@ services.each do |name, info|
   puts "#{service.service_name} service has been created"
 end
 puts 'All services are done!'
+
+providers.each do
+  User.update!(
+    service: Service.all.sample
+  )
+end
 
 # # Seed Bookings
 puts 'Creating 8 new bookings'

@@ -11,19 +11,30 @@
     <%# 6 dives for services %>
     <div>
       <%# delite and edit dives as you need  %>
-      <div class="row justify-content-center">
-        <div class="col-sm-8 my-3">
-          <%= form_with url: services_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  placeholder: "Type a keyword"
-              %>
-            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-          <% end %>
+        <div class="row justify-content-center">
+          <div class="col-sm-8 my-3">
+            <%= form_with url: services_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Type a keyword"
+                %>
+              <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
-      </div>
-        <div></div>
+        <div>
+        <%= link_to service_path(service) do %>
+          <div class="card">
+            <%= cl_image_tag service.photos.first.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to service.user.first_name, service_path(service), class: "text-decoration-none" %></h5>
+              <p class="card-text"><%= service.description %></p>
+              <p class="card-text">Price: <%= number_to_currency(service.price, unit: '¥')  %></p>
+            </div>
+          </div>
+        <% end %>
+        </div>
         <div></div>
         <div></div>
         <div></div>
