@@ -50,11 +50,7 @@
 }
 
 /* Style the featured people section */
-.featured-people {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+
 
 .person-card {
   text-align: center;
@@ -94,8 +90,8 @@ footer {
 .featured-people{
   display: flex;
   flex-direction: column;
-  height: 900px;
-  justify-content: space-evenly;
+  height: auto;
+
 }
 .servicespeople{
   margin: 0 auto;
@@ -107,4 +103,65 @@ footer {
 .person-card{
   width: auto;
   height: 150px;
+}
+
+// homebimg
+.homeimage{
+display: flex;
+height: 700px;
+width:100%;
+background: url("https://images.pexels.com/photos/2609463/pexels-photo-2609463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+background-size: cover;
+text-align: center;
+justify-content: center;
+flex-direction: column;
+background-repeat: no-repeat;;
+}
+h2{
+  color: white;
+}
+
+.container {
+  max-width: none;  /* Remove any fixed max-width */
+  width: 100%;
+  --bs-gutter-x: none;
+
+}
+.homeimage {
+  text-align: center;
+  margin: 0 auto; /* Adjust as needed */
+}
+.shine{
+  text-shadow: 0 0 20px #feeecb, 0 0 40px #b2e0f5;
+
+}
+// charecters
+.charecters{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  background-color: rgb(245, 245, 245);
+  text-align: center;
+  // box-shadow: 0 0 5px #d6d6d6, 0 0 7px #ffecda;
+  background-color: rgb(111, 113, 243);
+  color: white;
+
+  // -webkit-box-reflect:below
+  //   1px linear-gradient(transparent, #0005);
+  //   box-shadow: 0 0 5px #ffb15d, 0 0 15px #ffb15d, 0 0 15px #ffb15d, 0 0 20px #ffb15d;
+
+
+}
+.charecterstext{
+  margin: 0 auto;
+  text-align:start;
+  padding: 100px;
+
+}
+
+// services1
+.services1{
+  height: 500px;
 }
