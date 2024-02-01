@@ -12,7 +12,7 @@ User.destroy_all
 Service.destroy_all
 Booking.destroy_all
 
-# Seed Users
+# # Seed Users
 puts 'Creating 54 new users...'
 providers = 54.times do |i|
   url = URI("https://randomuser.me/api/")
@@ -34,7 +34,7 @@ providers = 54.times do |i|
 end
 puts "All users are done!"
 
-# Seed Services
+# # Seed Services
 puts 'Creating 6 new services'
 
 japanese_cities = ['Tokyo', 'Osaka', 'Kyoto', 'Sapporo', 'Fukuoka', 'Nagoya', 'Yokohama', 'Kobe', 'Hiroshima', 'Sendai']
@@ -54,7 +54,7 @@ services.each do |name, info|
     service_name: name,
     description: Faker::Lorem.paragraph,
     category: name,
-    price: Faker::Commerce.price(range: 3000..8000),
+    price: Faker::Commerce.price([3000, 3500, 4000, 4500, 5000].sample),
     location: japanese_cities.sample
   )
   info[:image_urls].each do |image_url|
@@ -65,12 +65,6 @@ services.each do |name, info|
   puts "#{service.service_name} service has been created"
 end
 puts 'All services are done!'
-
-providers.each do
-  User.update!(
-    service: Service.all.sample
-  )
-end
 
 # # Seed Bookings
 puts 'Creating 8 new bookings'
