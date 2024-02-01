@@ -18,17 +18,6 @@ class BookingsController < ApplicationController
   def create
     @service = Service.find(params[:service_id])
 
-    # start_time = Time.parse(params[:booking][:start_date])
-    # end_time = Time.parse(params[:booking][:end_date])
-
-    # @booking = current_user.bookings.new(
-      # booking_params.merge(
-      #   service: @service,
-      #   start_date: start_date,
-      #   end_date: end_date
-      # )
-    # )
-
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.service = @service
@@ -41,10 +30,33 @@ class BookingsController < ApplicationController
     end
   end
 
+  def booked
+    update_status('booked')
+  end
+
+  def declined
+    update_status('declined')
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to dashboard_path, notice: 'Booking status updated.'
+  end
+
   private
 
+  def update_status(status)
+    @booking = Booking.find(params[:id])
+    if @booking.update(status: status)
+      redirect_to dashboard_path, notice: 'Booking status updated.'
+    else
+      render :index, alert: 'could not update booking status.'
+    end
+  end
+
   def booking_params
-    params.require(:booking).permit(:user_id, :service_id, :start_date, :end_date, :pickup_location, :pickup_date, :pickup_time, :dropoff_location, :dropoff_date, :dropoff_time)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
   def booking_errors_message

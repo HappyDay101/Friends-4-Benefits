@@ -12,9 +12,9 @@ User.destroy_all
 Service.destroy_all
 Booking.destroy_all
 
-# Seed Users
+# # Seed Users
 puts 'Creating 54 new users...'
-54.times do |i|
+54.times do
   url = URI("https://randomuser.me/api/")
   response = Net::HTTP.get(url)
   json = JSON.parse(response)
@@ -34,7 +34,7 @@ puts 'Creating 54 new users...'
 end
 puts "All users are done!"
 
-# Seed Services
+# # Seed Services
 puts 'Creating 6 new services'
 
 japanese_cities = ['Tokyo', 'Osaka', 'Kyoto', 'Sapporo', 'Fukuoka', 'Nagoya', 'Yokohama', 'Kobe', 'Hiroshima', 'Sendai']
@@ -54,7 +54,7 @@ services.each do |name, info|
     service_name: name,
     description: Faker::Lorem.paragraph,
     category: name,
-    price: Faker::Commerce.price(range: 3000..8000),
+    price: Faker::Commerce.price([3000, 3500, 4000, 4500, 5000].sample),
     location: japanese_cities.sample
   )
   info[:image_urls].each do |image_url|
@@ -75,7 +75,7 @@ puts 'Creating 8 new bookings'
     start_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now + 3),
     end_date: Faker::Time.between(from: DateTime.now + 3, to: DateTime.now + 6),
     comment: Faker::Lorem.paragraph_by_chars,
-    status: ["Booked", "Pending", "Declined"].sample
+    status: Booking.statuses.keys.sample
   )
   puts "#{booking.service.service_name} booking has been created"
 end

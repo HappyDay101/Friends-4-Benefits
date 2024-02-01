@@ -4,6 +4,9 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    if params[:query].present?
+      @services = @services.where(service_name: params[:query])
+    end
   end
 
   def new

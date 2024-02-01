@@ -19,9 +19,10 @@
         <!-- Wrap the card content in a link to the show page -->
         <%= link_to service_path(service) do %>
           <div class="card">
-            <%= cl_image_tag service.photos.first.key, height: 300, width: 400, crop: :fill %>
+            <!--<%= cl_image_tag service.photos.first.key, height: 300, width: 400, crop: :fill %>-->
+            <%= image_tag service.user.photo, height: 300, width: 400, crop: :fill %>
             <div class="card-body">
-              <h5 class="card-title"><%= link_to service.service_name, service_path(service), class: "text-decoration-none" %></h5>
+              <h5 class="card-title"><%= link_to service.user.first_name, service_path(service), class: "text-decoration-none" %></h5>
               <p class="card-text"><%= service.description %></p>
               <p class="card-text">Price: <%= number_to_currency(service.price, unit: '¥')  %></p>
             </div>
