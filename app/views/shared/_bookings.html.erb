@@ -1,0 +1,79 @@
+<div class="row border">
+
+  <div class="dropdown d-grid gap-2 d-md-flex justify-content-end">
+    <div class="d-flex align-items-center">
+      <i class="fa-regular fa-bell"></i>
+    </div>
+    <button class="btn btn-light dropdown-toggle border m-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img class="avatar rounded align-middle me-2" src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User avatar" />
+        Welcome back, <strong><%= current_user.first_name %>!</strong>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Account</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title text-muted">Total</h5>
+      <h5 class="card-subtitle mt-2">$150.00</h6>
+    </div>
+  </div>
+
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title text-muted">Upcoming Bookings Total</h5>
+      <h5 class="card-subtitle mt-2">$200.00</h6>
+    </div>
+  </div>
+
+<h3 class="text-muted">Bookings</h3>
+
+  <div>
+    <button type="button" class="btn btn-light rounded-pill border">All</button>
+    <button type="button" class="btn btn-light rounded-pill border">Complete</button>
+    <button type="button" class="btn btn-light rounded-pill border">Pending</button>
+    <button type="button" class="btn btn-light rounded-pill border">Rejected</button>
+  </div>
+
+
+<div class="row">
+  <table class="table table-hover table-borderless mt-4">
+    <thead class="border-bottom">
+      <tr>
+        <th scope="col">Service</th>
+        <th scope="col">Date Start</th>
+        <th scope="col">Date End</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total Hours</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <th scope="row"><%= booking.service.service_name %></th>
+          <td><%= booking.start_date.strftime("%Y-%m-%d") %></td>
+          <td><%= booking.end_date.strftime("%Y-%m-%d") %></td>
+          <td><%= number_to_currency(booking.service.price) %></td>
+          <td>Hours</td>
+          <td>
+            <% if booking.pending? %>
+              Pending
+            <% elsif booking.booked? %>
+              Booked
+            <% elsif booking.declined? %>
+              Declined
+            <% else %>
+              <%= booking.status.capitalize %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+</div>
