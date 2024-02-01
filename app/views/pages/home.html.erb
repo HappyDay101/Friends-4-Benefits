@@ -30,30 +30,50 @@
           </div>
     </div>
     <%# 6 dives for services %>
+    <div class="servicetitle">
+      <h1>some of our service </h1>
+    </div>
+
     <div class="services1">
       <%# delite and edit dives as you need  %>
-        <div class="container border">
-          <div class="row row-cols-3 border">
-            <%= link_to services_path + "?query=Drink+Buddy" do %>
-              <%= image_tag "drinks/drink_1.jpg", alt: "Drinking Image", width: 400, height: 300, crop: :fill %>
-            <% end %>
+          <div>
+                <%= link_to services_path + "?query=Drink+Buddy" do %>
+                  <%= image_tag "drinks/drink_1.jpg", alt: "Drinking Image", width: 400, height: 300, crop: :fill %>
+                  <span class="service-name">Drink Buddy</span>
+                <% end %>
+          </div>
+          <div>
             <%= link_to services_path + "?query=Coding+Buddy" do %>
               <%= image_tag "codes/code_1.jpg", alt: "Coding Image", width: 400, height: 300, crop: :fill %>
-            <% end %>
-            <%= link_to services_path + "?query=Animal+Buddy" do %>
-              <%= image_tag "animals/animal_1.jpg", alt: "Animal Image", width: 400, height: 300, crop: :fill %>
-            <% end %>
-            <%= link_to services_path + "?query=Sports+Buddy" do %>
-              <%= image_tag "sports/sport_1.jpg", alt: "Sport Image", width: 400, height: 300, crop: :fill %>
-            <% end %>
-            <%= link_to services_path + "?query=Cult+Buddy" do %>
-              <%= image_tag "cults/cult_1.jpg", alt: "Cult Image", width: 400, height: 300, crop: :fill %>
-            <% end %>
-            <%= link_to services_path + "?query=Emo+Buddy" do %>
-              <%= image_tag "emos/emo_1.jpg", alt: "Emo Image", width: 400, height: 300, crop: :fill %>
+              <span class="service-name">Dcodding buddy</span>
             <% end %>
           </div>
-        </div>
+            <div>
+            <%= link_to services_path + "?query=Animal+Buddy" do %>
+              <%= image_tag "animals/animal_1.jpg", alt: "Animal Image", width: 400, height: 300, crop: :fill %>
+              <span class="service-name">animal buddy</span>
+            <% end %>
+            </div>
+            <div>
+            <%= link_to services_path + "?query=Sports+Buddy" do %>
+              <%= image_tag "sports/sport_1.jpg", alt: "Sport Image", width: 400, height: 300, crop: :fill %>
+              <span class="service-name">sports buddy</span>
+            <% end %>
+            </div>
+            <div>
+            <%= link_to services_path + "?query=Cult+Buddy" do %>
+              <%= image_tag "cults/cult_1.jpg", alt: "Cult Image", width: 400, height: 300, crop: :fill %>
+              <span class="service-name">cult buddy</span>
+            <% end %>
+            </div>
+            <div>
+            <%= link_to services_path + "?query=Emo+Buddy" do %>
+              <%= image_tag "emos/emo_1.jpg", alt: "Emo Image", width: 400, height: 300, crop: :fill %>
+              <span class="service-name">emo buddy</span>
+            <% end %>
+            </div>
+
+
     </div>
 
   </section>
