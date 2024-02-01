@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :bookings_as_owner, through: :services, source: :bookings
   has_one_attached :photo
 
+  # reviews
+  has_many :reviews, dependent: :destroy
+  has_many :reviewed_services, through: :reviews, source: :service
+
   def full_name
     "#{first_name} #{last_name}"
   end

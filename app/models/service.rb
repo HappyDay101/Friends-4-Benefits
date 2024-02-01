@@ -7,6 +7,10 @@ class Service < ApplicationRecord
   # price validation
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
+  # review
+  has_many :reviews, dependent: :destroy
+  belongs_to :user
+
   def picture_url
     picture.url
   end
