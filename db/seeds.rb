@@ -2,9 +2,9 @@
 # Ensure Faker is loaded
 require 'faker'
 require "open-uri"
+require 'json'
 require 'uri'
 require 'net/http'
-require 'json'
 
 # Clear previous records
 puts 'Destroying all previous records'
@@ -13,15 +13,24 @@ Service.destroy_all
 Booking.destroy_all
 
 # Seed Users
-puts 'Creating 54 new users'
-54.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password'
-  )
-  puts "#{user.first_name} has been created"
+puts 'Creating 54 new users...'
+54.times do |i|
+  url = URI("https://randomuser.me/api/")
+  response = Net::HTTP.get(url)
+  json = JSON.parse(response)
+  results = json["results"]
+  results.each do |result|
+    user = User.create!(
+      first_name: result["name"]["first"],
+      last_name: result["name"]["last"],
+      email: result["email"],
+      password: 'password'
+    )
+    img_url = result["picture"]["large"]
+    file = URI.open(img_url)
+    user.photo.attach(io: file, filename: 'user.jpg', content_type: 'image/jpg')
+    puts "User #{user.first_name} has been created..."
+  end
 end
 puts "All users are done!"
 
@@ -57,7 +66,7 @@ services.each do |name, info|
 end
 puts 'All services are done!'
 
-# Seed Bookings
+# # Seed Bookings
 puts 'Creating 8 new bookings'
 8.times do
   booking = Booking.create!(
