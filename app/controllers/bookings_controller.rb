@@ -40,7 +40,6 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    debugger
     @booking.update(booking_params)
     redirect_to dashboard_path, notice: 'Booking status updated.'
   end
