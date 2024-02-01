@@ -7,9 +7,22 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :services, only: %i[index show new create edit update destroy] do
-    resources :bookings, only: :create # Changed from :reservations to :bookings
+    resources :bookings, only: [:create] do
+      # member do
+      #   patch :accept, as: 'accept'
+      #   patch :reject, as: 'reject'
+      # end
+    end
   end
+
+  resources :bookings, only: [:update]
 
   get "dashboard", to: "bookings#index"
   get '/bookings/new', to: 'bookings#new', as: 'new_booking'  # Changed from 'reservations' to 'bookings'
+
+  # services
+  resources :services do
+    resources :reviews
+  end
+
 end

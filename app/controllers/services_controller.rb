@@ -4,6 +4,9 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    if params[:query].present?
+      @services = @services.where(service_name: params[:query])
+    end
   end
 
   def new
@@ -23,6 +26,9 @@ class ServicesController < ApplicationController
     @service = Service.find_by(id: params[:id])
     @bookings = @service.bookings.includes(:user)
     @booking = Booking.new()
+      # review
+    @reviews = @service.reviews.includes(:user)
+    @review = Review.new
   end
 
   private

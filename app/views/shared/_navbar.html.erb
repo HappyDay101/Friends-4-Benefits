@@ -1,49 +1,52 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-navbar">
   <div class="container-fluid">
-
-   <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
       <h1 class="friendslogo" >friends</h1>
     <% end %>
-
-
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-      <div class="divli1">
         <% if user_signed_in? %>
-
-          <li class="nav-item zoom">
-            <%= link_to "Services", services_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item zoom">
-            <%= link_to "Bookings", dashboard_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item zoom">
-            <%= link_to "Reviews", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item zoom">
-            <%= link_to "About Us", "#", class: "nav-link" %>
-          </li>
+          <div class="divli1">
+            <li class="nav-item zoom">
+              <%= link_to "Services", services_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item zoom">
+              <%= link_to "Bookings", dashboard_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item zoom">
+              <%= link_to "Reviews", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item zoom">
+              <%= link_to "About Us", "#", class: "nav-link" %>
+            </li>
           </div>
           <div class="divli">
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= link_to "", new_user_session_path, class: "avatar nav-link login1 fas fa-user", alt: "dropdown menu" %>
+          <a href="#" class=" fas fa-user" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "", class: "avatar fa-user", alt: "" %>
           </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
           </div>
         <% else %>
           <li class="nav-item login1">
-            <%= link_to "", new_user_session_path, class: "nav-link login1 fas fa-user" %>
-
+            <%= link_to "", new_user_session_path, class: "nav-link login1 fa-user fasus" %>
           </li>
         <% end %>
       </ul>

@@ -39,6 +39,7 @@
     <%= render 'shared/booking_form' %>
   </div>
 
+
   <div class="col-md-4">
     <!-- Pricing and Ratings -->
     <div class="pricing-ratings mt-4">
@@ -47,6 +48,7 @@
         <%= render partial: 'shared/star_rating', locals: { rating: rand(0.0..5.0).round(1) } %>
         (<%= rand(1..50) %> reviews)
       </div>
+
     </div>
 
     <!-- More Details -->
@@ -61,6 +63,14 @@
   </div>
   </div>
 </div>
+    <%# reviews renders %>
+    <br>
+    <div>
+      <p>add review</p>
+      <%= render 'reviews/form', review: @review %>
+      <%= render 'reviews/list', reviews: @reviews %>
+    </div>
+
 
 <div class="container">
   <h1>From My Gallery</h1>
@@ -76,4 +86,5 @@
       </div>
     <% end %>
   </div>
+
 </div>
