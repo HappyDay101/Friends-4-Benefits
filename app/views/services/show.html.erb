@@ -7,7 +7,7 @@
 
   <div class="service-card">
     <div class="service-image">
-      <%= image_tag 'https://thispersondoesnotexist.com/', alt: "Service Picture", class: "img-fluid" %>
+      <%= image_tag @service.user.photo, alt: "Service Picture",class: "img-fluid" %>
     </div>
     <div class="service-content">
       <h1 class="service-title"><%= @service.user.full_name %></h1>
