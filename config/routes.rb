@@ -19,4 +19,10 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "bookings#index"
   get '/bookings/new', to: 'bookings#new', as: 'new_booking'  # Changed from 'reservations' to 'bookings'
+
+  # services
+  resources :services do
+    resources :reviews
+  end
+
 end

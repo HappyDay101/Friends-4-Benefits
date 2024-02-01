@@ -3,7 +3,6 @@
 //   background: rgb(255, 0, 0);
 //   background-color: rgb(226, 128, 0);
 // }
-
 .friendslogo:hover, .zoom:hover, .avatar:hover {
   transform: scale(1.1);
   cursor: pointer;
@@ -16,7 +15,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-
+  background-color: rgb(226, 128, 0); /* Set your desired background color */
 }
 .container-fluid{
   width: 90%;
@@ -50,11 +49,15 @@ a {
   flex-direction: row;
   justify-content: space-evenly;
   width: 80%;
+
+
+}
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
 }
 
-
 .friendslogo{
-
+  font-family: 'Courier New', Courier, monospace;
   color: rgb(255, 166, 0);
 
 }
@@ -72,7 +75,13 @@ a {
 // }
 .fa-user{
   color: orange;
-  margin-top: 5px;
+  position: absolute;
+}
+.fasus{
+  color: orange;
+  position: absolute;
+  right: 80px;
+  top: 35px;
 }
 // .nav-link{
 //   position: absolute;
