@@ -14,7 +14,7 @@ Booking.destroy_all
 
 # # Seed Users
 puts 'Creating 54 new users...'
-providers = 54.times do |i|
+54.times do
   url = URI("https://randomuser.me/api/")
   response = Net::HTTP.get(url)
   json = JSON.parse(response)
