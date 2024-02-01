@@ -40,15 +40,9 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    respond_to do |format|
-      if @booking.update(booking_params)
-        format.html { redirect_to dashboard_path, notice: 'Booking status updated.' }
-        format.json { render :show, status: :ok, location: @booking }
-      else
-        format.html { redirect_to dashboard_path, alert: @booking.errors.full_messages.to_sentence }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
-    end
+    debugger
+    @booking.update(booking_params)
+    redirect_to dashboard_path, notice: 'Booking status updated.'
   end
 
   private
