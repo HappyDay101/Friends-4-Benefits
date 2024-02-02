@@ -14,7 +14,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = List.new(service_params)
+    @service = Service.new(service_params)
     if @service.save
       redirect_to services_path
     else
@@ -22,13 +22,14 @@ class ServicesController < ApplicationController
     end
   end
 
+
   def show
     @service = Service.find_by(id: params[:id])
     @bookings = @service.bookings.includes(:user)
     @booking = Booking.new()
-      # review
     @reviews = @service.reviews.includes(:user)
     @review = Review.new
+
   end
 
   private

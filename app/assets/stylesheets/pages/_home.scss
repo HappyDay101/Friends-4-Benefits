@@ -1,7 +1,10 @@
 // Specific CSS for your home-page
+body{
+  background-color: white;
+}
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -147,7 +150,7 @@ h2{
   background-color: rgb(245, 245, 245);
   text-align: center;
   // box-shadow: 0 0 5px #d6d6d6, 0 0 7px #ffecda;
-  background-color: rgb(111, 113, 243);
+  background: rgb(44, 44, 44);
   color: white;
 
   // -webkit-box-reflect:below
@@ -222,6 +225,9 @@ a{
   text-decoration: none;
 }
 .servicetitle{
+ justify-content: center;
+ text-align: center;
+  display: flex;
   margin: 0 auto;
   margin-top: 60px;
 }
