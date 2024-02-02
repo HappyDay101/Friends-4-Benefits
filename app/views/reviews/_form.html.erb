@@ -1,11 +1,56 @@
-
 <%= form_with(model: [ @service, @review ], url: service_reviews_path(@service)) do |form| %>
+  <div class="review-form">
+    <div class="form-group">
+      <%= form.label :content, class: "form-label" %>
+      <%= form.text_area :content, class: "form-input" %>
+    </div>
 
-  <%= form.label :content %>
-  <%= form.text_area :content %>
+    <div class="form-group">
+      <%= form.label :rating, "Rating:", class: "form-label" %>
+      <div class="star-rating">
+        <% (1..5).each do |i| %>
+          <%= form.radio_button :rating, i, id: "star#{i}" %>
+          <%= form.label "star#{i}", class: "star-label", title: "#{i} stars" do %>
+            ★
+          <% end %>
+        <% end %>
+      </div>
+      <!--for the rating -->
+      <%= form.hidden_field :rating, id: "review_rating" %>
+    </div>
 
-  <%= form.label :rating %>
-  <%= form.number_field :rating, in: 1..5 %>
+    <div class="form-actionss">
+      <%= form.submit 'Submit Review', class: "submit-btn" %>
+    </div>
 
-  <%= form.submit 'Submit Review' %>
+    <!--  received rating -->
+    <p class="received-rating"><%= params[:review]&.dig(:rating) %></p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // click event to a parent element
+      document.body.addEventListener('click', function (event) {
+        const stars = document.querySelectorAll('.star-label');
+        const ratingInput = document.getElementById('review_rating');
+
+        //  element is a star
+        if (event.target.classList.contains('star-label')) {
+          const index = Array.from(stars).indexOf(event.target);
+
+          // visual of the stars
+          stars.forEach((s, i) => {
+            if (i <= index) {
+              s.classList.add('selected');
+            } else {
+              s.classList.remove('selected');
+            }
+          });
+
+          // Update input field value
+          ratingInput.value = index + 1;
+        }
+      });
+    });
+  </script>
 <% end %>

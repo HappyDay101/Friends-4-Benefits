@@ -8,14 +8,14 @@
   cursor: pointer;
 }
 a {
-  color: blue;
+
   text-decoration: none; /* no underline */
 }
 .sticky-navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgb(226, 128, 0); /* Set your desired background color */
+
 }
 .container-fluid{
   width: 90%;
@@ -76,6 +76,7 @@ a {
 .fa-user{
   color: orange;
   position: absolute;
+  margin-top: 10px;
 }
 .fasus{
   color: orange;

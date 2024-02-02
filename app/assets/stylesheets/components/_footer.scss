@@ -31,24 +31,33 @@ footer{
 
 
 }
-.purplebtn{
-  background-color: rgb(111, 113, 243);
-  color: white;
+.orangeinp{
+  display: flex;
+  height: 40px;
+  width: auto;
+  align-items: center;
+  justify-content: space-around;
 
 }
-.orangeinp{
-  height: 50px;
-  width: 200px;
+.purplebtn{
+  background: rgb(44, 44, 44);
+  color: white;
+  align-items: center;
+  vertical-align: middle;;
 }
 .purplebox{
   height: 300px;
-  background-color: rgb(111, 113, 243);
+  background: rgb(44, 44, 44);
   width: 100%;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   color: whitesmoke;
 
+}
+.form-control{
+  width: 250px;
+  margin: 0 auto;
 }
 .listgroup{
   display: flex;
