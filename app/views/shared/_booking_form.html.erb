@@ -1,25 +1,19 @@
-<div class="simple-form-booking">
+<div class="bookingform">
   <%= simple_form_for [@service, @booking], wrapper: :vertical_form do |form| %>
-    <div class="row form-div">
-      <div class="col-1 mx-1 px-0">
-        <h3>Pickup Date</h3>
+    <div class="pickup">
+      <div>
+        <h3>start time</h3>
         <%= form.input :start_date, as: :string, required: true, input_html: { name: 'booking[start_date]', placeholder: 'YYYY/MM/DD', data: { controller: 'datepicker' } } %>
       </div>
-      <%# <div class="col-1 mx-1 px-0">
-        <h3>Pickup Time</h3>
-        <%= form.input :start_date, as: :string, required: true, input_html: { name: 'booking[start_date]', placeholder: 'HH:MM', data: { controller: 'timepicker' } } %>
-      </div>
-      <div class="col-1 mx-1 px-0">
-        <h3>Dropoff Time</h3>
+
+      <div>
+        <h3>end time</h3>
         <%= form.input :end_date, as: :string, required: true, input_html: { name: 'booking[end_date]', placeholder: 'YYYY/MM/DD', data: { controller: 'datepicker' } } %>
       </div>
-      <%# <div class="col-1 mx-1 px-0">
-        <h3>Dropoff Time</h3>
-        <%= form.input :end_date, as: :string, required: true, input_html: { name: 'booking[end_date]', placeholder: 'HH:MM', data: { controller: 'timepicker' } } %>
-      </div>
-      <div class="col-1 mx-1 px-0">
-        <%= form.button :submit, 'Reserve', class: 'search-button' %>
-      </div>
+    </div>
+
+    <div class="bookbutton">
+      <%= form.button :submit, 'Reserve', class: 'search-button' %>
     </div>
   <% end %>
 </div>

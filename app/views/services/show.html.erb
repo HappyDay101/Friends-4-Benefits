@@ -1,90 +1,86 @@
-<div class="container">
 
-  <div class="back-button mb-3">
-    <%= link_to "Back", services_path, class: "btn btn-secondary" %>
-    <%= link_to "Reserve this Service", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
-  </div>
-
-  <div class="service-card">
-    <div class="service-image">
-      <%= image_tag @service.user.photo, alt: "Service Picture",class: "img-fluid" %>
-    </div>
-    <div class="service-content">
-      <h1 class="service-title"><%= @service.user.full_name %></h1>
-      <h2 class="service-subtitle"><%= @service.service_name %></h2>
-      <p class="service-description"><%= @service.description %></p>
-    </div>
-  </div>
-
-  <div class="social-buttons">
-    <!-- Social Engagement -->
-    <div class="social-engagement mt-4">
-      <!-- Social Links -->
-      <div class="social-media">
-        <%= link_to "Facebook", '#', class: "mr-2" %>
-        <%= link_to "Instagram", '#', class: "mr-2" %>
-        <%= link_to "Website", '#' %>
-      </div>
-      <!-- Engagement Buttons -->
-      <div class="engagement-buttons mt-2">
-        <button class="btn btn-light">❤️ <%= '#' %></button>
-        <button class="btn btn-light">💬 <%= '#' %></button>
-        <button class="btn btn-light">👁️ <%= '#' %></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Booking Form Bar -->
-  <div class="booking-form-bar">
-    <%= render 'shared/booking_form' %>
-  </div>
+<div class="container" id="allin">
 
 
-  <div class="col-md-4">
-    <!-- Pricing and Ratings -->
-    <div class="pricing-ratings mt-4">
-      <h3><%= @service.service_name %>. Price: <%= number_to_currency(@service.price) %> / Per Service</h3>
-      <div class="ratings">
-        <%= render partial: 'shared/star_rating', locals: { rating: rand(0.0..5.0).round(1) } %>
-        (<%= rand(1..50) %> reviews)
+    <div class="service-card">
+      <%= link_to services_path, class: "btn btn-secondary back-button" do %>
+        <i class="fa fa-arrow-left"></i>
+      <% end %>
+      <div class="service-image fancy-hover">
+        <%= image_tag @service.user.photo, alt: "Service Picture", class: "img-fluid" %>
       </div>
 
-    </div>
 
-    <!-- More Details -->
-    <div class="more-details mt-4">
-      <h3>More Details</h3>
-      <p><strong>Service:</strong> <%= @service.service_name %></p>
-      <p><strong>Location:</strong> <%= @service.location %></p>
-      <p><strong>Not Included:</strong> <%= "lorem ipsum" %></p>
-      <p><strong>Included:</strong> <%= "lorem ipsum" %></p>
-      <p><strong>Description:</strong> <%= @service.description %></p>
-    </div>
-  </div>
-  </div>
-</div>
-    <%# reviews renders %>
-    <br>
-    <div>
-      <p>add review</p>
-      <%= render 'reviews/form', review: @review %>
-      <%= render 'reviews/list', reviews: @reviews %>
-    </div>
+      <div class="service-content">
+        <h1 class="service-title"><%= @service.user.full_name %></h1>
+        <h2 class="service-subtitle"><%= @service.service_name %></h2>
+        <p class="service-description"><%= @service.description %></p>
+          <div class="social-buttons">
+            <!-- Social Engagement -->
+            <div class="social-engagement mt-4">
+              <!-- Social Links -->
+                <div class="social-media">
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="fa fa-facebook"></a>
 
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-instagram"></i>
+                  </a>
 
-<div class="container">
-  <h1>From My Gallery</h1>
-  <p><%= Faker::Lorem.paragraph_by_chars %></p>
-</div>
+                  <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="fa fa-youtube"></a>
+              </div>
 
-
-<div class="container border">
-  <div class="row row-cols-3 border">
-    <% @service.photos.each do |photo| %>
-      <div class="col border">
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <!-- Engagement Buttons -->
+            </div>
+          </div>
       </div>
-    <% end %>
-  </div>
+    </div>
 
+
+
+
+    <div class="descriptionsection">
+      <!-- More Details -->
+        <div class="infosection">
+          <h3>More Details</h3>
+          <p><strong>Service:</strong> <%= @service.service_name %></p>
+          <p><strong>Location:</strong> <%= @service.location %></p>
+
+          <p><strong>Description:</strong> <%= @service.description %></p>
+       </div>
+
+        <!-- Booking Form Bar -->
+        <div class="bookingbar">
+          <%= render 'shared/booking_form' %>
+        </div>
+    </div>
+        <br>
+        <div class="reviewpage" >
+            <h1 class="reviewtitle">add review</h1>
+            <div class="reviewform">
+              <div class="orangeform">
+              <%= render 'reviews/form', review: @review %>
+              </div>
+              <div >
+              <%= render 'reviews/list', reviews: @reviews %>
+              </div>
+            </div>
+        </div>
+
+
+      <div class="container">
+        <h1>From My Gallery</h1>
+        <p><%= Faker::Lorem.paragraph_by_chars %></p>
+      </div>
+
+
+    <div class="container border">
+      <div class="row row-cols-3 border">
+        <% @service.photos.each do |photo| %>
+          <div class="col border">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
 </div>

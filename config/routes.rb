@@ -25,4 +25,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :services do
+    resources :reviews, only: [:create]
+  end
+
 end
