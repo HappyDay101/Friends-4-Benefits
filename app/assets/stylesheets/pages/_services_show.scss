@@ -24,3 +24,25 @@
   align-items: center;
   margin-top: 20px;
 }
+
+.service-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.engagemenet-buttons {
+  background-color: #F2A156;
+  color: white;
+  border-radius: 8px;
+  font-size: 12px;
+  width: 25%;
+}
+
+.engagemenet-buttons div {
+  width: 300px;
+  height: 300px;
+  margin: 6px;
+  background-color: lightblue;
+}
