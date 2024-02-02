@@ -85,8 +85,8 @@
   <div class="container my-4">
     <div class="row">
       <% @service.photos.each do |photo| %>
-        <div class="col d-flex justify-content-around">
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="col d-flex justify-content-around shadow rounded">
+          <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
         </div>
       <% end %>
   </div>

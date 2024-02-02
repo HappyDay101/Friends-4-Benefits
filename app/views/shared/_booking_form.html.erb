@@ -2,11 +2,11 @@
   <%= simple_form_for [@service, @booking], wrapper: :vertical_form do |form| %>
     <div class="row align-items-center">
       <div class="col-4">
-        <h3>Start Date</h3>
+        <h3 class="text-light">Start Date</h3>
         <%= form.input :start_date, as: :string, required: true, input_html: { name: 'booking[start_date]', placeholder: 'YYYY/MM/DD', data: { controller: 'datepicker' } } %>
       </div>
       <div class="col-4">
-        <h3>End Date</h3>
+        <h3 class="text-light">End Date</h3>
         <%= form.input :end_date, as: :string, required: true, input_html: { name: 'booking[end_date]', placeholder: 'YYYY/MM/DD', data: { controller: 'datepicker' } } %>
       </div>
       <div class="col-4">
