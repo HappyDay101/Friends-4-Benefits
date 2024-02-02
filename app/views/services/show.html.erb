@@ -5,9 +5,9 @@
     <%= link_to "Reserve this Service", new_booking_path(service_id: @service.id), class: "btn btn-primary" %>
   </div>
 
-  <div class="service-card">
+  <div class="service-card d-flex justify-content-around">
     <div class="service-image">
-      <%= image_tag @service.user.photo, alt: "Service Picture",class: "img-fluid" %>
+      <%= image_tag @service.user.photo, alt: "Service Picture", class: "" %>
     </div>
     <div class="service-content">
       <h1 class="service-title"><%= @service.user.full_name %></h1>
@@ -21,10 +21,17 @@
     <div class="social-engagement mt-4">
       <!-- Social Links -->
       <div class="social-media">
-        <%= link_to "Facebook", '#', class: "mr-2" %>
-        <%= link_to "Instagram", '#', class: "mr-2" %>
-        <%= link_to "Website", '#' %>
+        <%= link_to "#" do %>
+          <i class="fa-brands fa-facebook"></i>
+        <% end %>
+        <%= link_to '#' do %>
+          <i class="fa-brands fa-instagram"></i>
+        <% end %>
+        <%= link_to '#' do %>
+          <i class="fa-brands fa-x-twitter"></i>
+        <% end %>
       </div>
+      
       <!-- Engagement Buttons -->
       <div class="engagement-buttons mt-2">
         <button class="btn btn-light">❤️ <%= '#' %></button>
@@ -61,8 +68,8 @@
       <p><strong>Description:</strong> <%= @service.description %></p>
     </div>
   </div>
-  </div>
 </div>
+
     <%# reviews renders %>
     <br>
     <div>
