@@ -11,6 +11,8 @@ class Service < ApplicationRecord
   has_many :reviews, dependent: :destroy
   belongs_to :user
 
+  SERVICE_CATEGORIES = services.keys
+
   def picture_url
     picture.url
   end
