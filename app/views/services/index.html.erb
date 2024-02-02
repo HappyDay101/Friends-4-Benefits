@@ -2,14 +2,46 @@
   <!-- Navbar -->
   <!-- Title Section -->
   <div class="text-center mt-4">
-    <h1 class="fw-bold">Find Your Bestie</h1>
-    <p class="text-muted">Find your future best friend</p>
+    <h1 class="fw-bold"><%= params[:query] ? params[:query] : "All Buddies" %></h1>
+    <p class="text-muted">Select the type of friend you're looking for!</p>
 
-    <!-- Search Box -->
-    <div class="input-group mt-3 w-50 mx-auto">
-      <input type="text" class="form-control" placeholder="Search your friend">
-      <button class="btn btn-orange search-btn" type="button">Search</button>
-    </div>
+  <!-- Search Box -->
+  <div class="btn-group d-flex justify-content-around my-4" role="group" aria-label="Basic radio toggle button group">
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <%= link_to services_path + "?query=Drink+Buddy" do %>
+      <label class="btn btn-outline-warning" for="btnradio1">Drinking Buddies</label>
+    <% end %>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <%= link_to services_path + "?query=Coding+Buddy" do %>
+      <label class="btn btn-outline-warning" for="btnradio2">Coding Buddies</label>
+    <% end %>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <%= link_to services_path + "?query=Animal+Buddy" do %>
+      <label class="btn btn-outline-warning" for="btnradio3">Animal Buddies</label>
+    <% end %>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+    <%= link_to services_path + "?query=Sports+Buddy" do %>
+      <label class="btn btn-outline-warning" for="btnradio4">Sports Buddies</label>
+    <% end %>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+    <%= link_to services_path + "?query=Cult+Buddy" do %>
+      <label class="btn btn-outline-warning" for="btnradio5">Cult Buddies</label>
+    <% end %>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+    <%= link_to services_path + "?query=Emo+Buddy" do %>
+      <label class="btn btn-outline-warning" for="btnradio6">Emo Buddies</label>
+    <% end %>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
+    <%= link_to services_path do %>
+      <label class="btn btn-outline-warning" for="btnradio7">All Buddies</label>
+    <% end %>
   </div>
 
   <!-- Services Cards Section -->
@@ -18,13 +50,13 @@
       <div class="col-md-3 mb-4">
         <!-- Wrap the card content in a link to the show page -->
         <%= link_to service_path(service) do %>
-          <div class="card">
-            <!--<%= cl_image_tag service.photos.first.key, height: 300, width: 400, crop: :fill %>-->
-            <%= image_tag service.user.photo, height: 300, width: 400, crop: :fill %>
+          <div class="card card-bg-color">
+            <%= image_tag service.user.photo, class:"mt-4", height: 300, width: 300, crop: :fill %>
             <div class="card-body">
               <h5 class="card-title"><%= link_to service.user.first_name, service_path(service), class: "text-decoration-none" %></h5>
-              <p class="card-text"><%= service.description %></p>
-              <p class="card-text">Price: <%= number_to_currency(service.price, unit: '¥')  %></p>
+              <p class="card-text"><%= service.service_name %></p>
+              <p class="card-text"><%= Faker::Lorem.sentence + Faker::Lorem.multibyte %></p>
+              <p class="card-text">Hourly Fee: <%= number_to_currency(service.price, unit: '¥')  %></p>
             </div>
           </div>
         <% end %>
