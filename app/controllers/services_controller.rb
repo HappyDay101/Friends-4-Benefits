@@ -23,10 +23,12 @@ class ServicesController < ApplicationController
   # end
 
   def create
-    @service = current_user.services.build(service_params)
+    @service = current_user.services.new(service_params)
     if @service.save
       redirect_to service_path(@service), notice: "Service created successfully"
     else
+      Rails.logger.debug(@service.errors.full_messages.to_sentence)
+      flash.now[:alert] = @service.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end

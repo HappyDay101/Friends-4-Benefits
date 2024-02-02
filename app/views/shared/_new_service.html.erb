@@ -1,9 +1,8 @@
 <%= simple_form_for(@service, html: { multipart: true }) do |f| %>
-  <%= f.input :service_name %>
-  <%= f.input :description %>
-  <%= f.input :category, collection: Service::SERVICE_CATEGORIES %>
-  <%= f.input :price %>
-  <%= f.input :location %>
-  <%= f.file_field :photos, multiple: true, accept: 'image/*' %>
+  <%= f.input :service_name, label: 'Service Name' %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.input :category, collection: Service::SERVICE_CATEGORIES, label: 'Category' %>
+  <%= f.input :price, label: 'Price' %>
+  <%= f.input :location, label: 'Location' %>
   <%= f.button :submit, 'Create Service' %>
 <% end %>
