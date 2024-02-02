@@ -25,7 +25,7 @@ class ServicesController < ApplicationController
   def create
     @service = current_user.services.build(service_params)
     if @service.save
-      redirect_to services_path(@service), notice: "Service created successfully"
+      redirect_to service_path(@service), notice: "Service created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:service_name, :location, :category, :description, :price, photos: [])
+    params.require(:service).permit(:service_name, :location, :category, :description, :price, photos: [], gallery_photos: [])
   end
 
   def set_service
