@@ -11,7 +11,7 @@ class Service < ApplicationRecord
   has_many :reviews, dependent: :destroy
   belongs_to :user
 
-  SERVICE_CATEGORIES = services.keys
+  SERVICE_CATEGORIES = ['Animal Buddy', 'Coding Buddy', 'Cult Buddy', 'Drink Buddy', 'Emo Buddy', 'Sports Buddy'].freeze
 
   def picture_url
     picture.url
