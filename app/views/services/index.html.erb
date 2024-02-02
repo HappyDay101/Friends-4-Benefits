@@ -2,44 +2,44 @@
   <!-- Navbar -->
   <!-- Title Section -->
   <div class="text-center mt-4">
-    <h1 class="fw-bold">All Buddies</h1>
+    <h1 class="fw-bold"><%= params[:query] ? params[:query] : "All Buddies" %></h1>
     <p class="text-muted">Select the type of friend you're looking for!</p>
 
   <!-- Search Box -->
   <div class="btn-group d-flex justify-content-around my-4" role="group" aria-label="Basic radio toggle button group">
 
-    <%= link_to services_path + "?query=Drink+Buddy" do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <%= link_to services_path + "?query=Drink+Buddy" do %>
       <label class="btn btn-outline-warning" for="btnradio1">Drinking Buddies</label>
     <% end %>
 
-    <%= link_to services_path + "?query=Coding+Buddy" do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <%= link_to services_path + "?query=Coding+Buddy" do %>
       <label class="btn btn-outline-warning" for="btnradio2">Coding Buddies</label>
     <% end %>
 
-    <%= link_to services_path + "?query=Animal+Buddy" do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <%= link_to services_path + "?query=Animal+Buddy" do %>
       <label class="btn btn-outline-warning" for="btnradio3">Animal Buddies</label>
     <% end %>
 
-    <%= link_to services_path + "?query=Sports+Buddy" do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+    <%= link_to services_path + "?query=Sports+Buddy" do %>
       <label class="btn btn-outline-warning" for="btnradio4">Sports Buddies</label>
     <% end %>
 
-    <%= link_to services_path + "?query=Cult+Buddy" do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+    <%= link_to services_path + "?query=Cult+Buddy" do %>
       <label class="btn btn-outline-warning" for="btnradio5">Cult Buddies</label>
     <% end %>
 
-    <%= link_to services_path + "?query=Emo+Buddy" do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+    <%= link_to services_path + "?query=Emo+Buddy" do %>
       <label class="btn btn-outline-warning" for="btnradio6">Emo Buddies</label>
     <% end %>
 
-    <%= link_to services_path do %>
       <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
+    <%= link_to services_path do %>
       <label class="btn btn-outline-warning" for="btnradio7">All Buddies</label>
     <% end %>
   </div>
