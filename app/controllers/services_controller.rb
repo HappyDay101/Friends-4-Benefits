@@ -13,10 +13,19 @@ class ServicesController < ApplicationController
     @service = Service.new
   end
 
+  # def create
+  #   @service = List.new(service_params)
+  #   if @service.save
+  #     redirect_to services_path
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
+
   def create
-    @service = List.new(service_params)
+    @service = current_user.services.build(service_params)
     if @service.save
-      redirect_to services_path
+      redirect_to services_path(@service), notice: "Service created successfully"
     else
       render :new, status: :unprocessable_entity
     end
