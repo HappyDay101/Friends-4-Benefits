@@ -1,0 +1,7 @@
+<%= simple_form_for Service.new, html: { multipart: true } do |f| %>
+  <%= f.input :category, collection: Service::CATEGORIES %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :gallery_photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit, "Add Service" %>
+<% end %>
