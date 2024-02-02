@@ -1,55 +1,52 @@
 .simple-form-booking {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.row.form-div {
-  display: flex;
-  flex-wrap: nowrap; // Prevents wrapping
-  align-items: center;
-  justify-content: center;
   background: #F2A156;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-block: 10px;
-  padding-inline: 0;
-  width: 100%;
-  max-width: 90%;
-  margin: auto;
 }
 
-.row.form-div > div {
-  flex-shrink: 0; // Prevents the columns from shrinking
-  margin-right: 16px; // Adjust the space between the columns
-  &:last-child {
-    margin-right: 0; // Removes the margin for the last column
-  }
-}
+// .row.form-div {
+//   display: flex;
+//   flex-wrap: nowrap; // Prevents wrapping
+//   align-items: center;
+//   justify-content: center;
+//   background: #F2A156;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   padding-block: 10px;
+//   padding-inline: 0;
+//   width: 100%;
+//   max-width: 90%;
+//   margin: auto;
+// }
 
-.form-div h3 {
-  color: white;
-  font-size: 14px;
-  margin-right: 8px; /* Add space between title and input */
-}
+// .row.form-div > div {
+//   flex-shrink: 0; // Prevents the columns from shrinking
+//   margin-right: 16px; // Adjust the space between the columns
+//   &:last-child {
+//     margin-right: 0; // Removes the margin for the last column
+//   }
+// }
 
-// Specific overrides for column flex-basis
-.form-div col-4 { flex: 0 0 calc(20% - 16px); }
-.form-div col-1 { flex: 0 0 calc(15% - 16px); }
-.form-div col-2 { flex: 0 0 calc(20% - 16px); }
+// .form-div h3 {
+//   color: white;
+//   font-size: 14px;
+//   margin-right: 8px; /* Add space between title and input */
+// }
 
-.input-field {
-  width: 100%;
-  background: #FFFFFF;
-  border: 1px solid #DDDDDD;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 12px 10px; // Adjust padding as needed
-  margin-right: 8px; // Adds a margin to the right of each input
-  &:focus {
-    border-color: #F2A156; // Highlight on focus
-  }
-}
+// // Specific overrides for column flex-basis
+// .form-div col-4 { flex: 0 0 calc(20% - 16px); }
+// .form-div col-1 { flex: 0 0 calc(15% - 16px); }
+// .form-div col-2 { flex: 0 0 calc(20% - 16px); }
+
+// .input-field {
+//   width: 100%;
+//   background: #FFFFFF;
+//   border: 1px solid #DDDDDD;
+//   box-sizing: border-box;
+//   border-radius: 4px;
+//   padding: 12px 10px; // Adjust padding as needed
+//   margin-right: 8px; // Adds a margin to the right of each input
+//   &:focus {
+//     border-color: #F2A156; // Highlight on focus
+//   }
+// }
 
 .search-button {
   flex: 0 0 auto;
@@ -65,8 +62,8 @@
   }
 }
 
-// If you have labels visible, style them as well
+// // If you have labels visible, style them as well
 .simple_form label {
-  display: none; // Hide labels if not needed
-  // Or style them if you want them visible
+   display: none; // Hide labels if not needed
+   // Or style them if you want them visible
 }
