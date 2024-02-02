@@ -1,48 +1,13 @@
-.service-card {
-  display: flex;
-  align-items: center;
-}
-
 .service-card img {
   width: 500px;
   height: 500px;
   border-radius: 1rem;
-  margin-left: 4rem;
-}
-
-.service-content {
-  margin-right: 4rem;
 }
 
 .service-subtitle {
   color: rgb(111, 113, 243);
 }
 
-.social-engagement {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.service-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.engagemenet-buttons {
-  background-color: #F2A156;
-  color: white;
-  border-radius: 8px;
-  font-size: 12px;
-  width: 25%;
-}
-
-.engagemenet-buttons div {
-  width: 300px;
-  height: 300px;
-  margin: 6px;
-  background-color: lightblue;
+.social-links {
+  color: rgb(111, 113, 243);
 }
