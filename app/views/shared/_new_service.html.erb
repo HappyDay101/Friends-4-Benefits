@@ -1,13 +1,15 @@
 <%= simple_form_for(@service, html: { multipart: true }) do |f| %>
+  <p>Service Name</p>
   <%= f.input :service_name, label: 'Service Name' %>
+  <p>Description</p>
   <%= f.input :description, label: "Description" %>
+  <p>Category</p>
   <%= f.input :category, collection: Service::SERVICE_CATEGORIES, label: 'Category' %>
+  <p>Price</p>
   <%= f.input :price, label: 'Price' %>
+  <p>Location</p>
   <%= f.input :location, label: 'Location' %>
-  <% if @service.user.photo.attached? %>
-    <%= image_tag @service.user.photo, alt: "Service Picture", class: "img-fluid" %>
-  <% else %>
-    <p> user image</p>
-  <% end %>
+  <p>Photos</p>
+  <%# <%= f.inpute :photos, as :file, input_html: {multiple: true} %>
   <%= f.button :submit, 'Create Service' %>
 <% end %>
