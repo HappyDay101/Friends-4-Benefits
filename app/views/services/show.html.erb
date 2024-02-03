@@ -66,21 +66,22 @@
             </div>
         </div>
 
+  <div class="container-fluid">
+    <div class="container mt-5 mb-4">
+      <h1>From My Gallery</h1>
+      <p><%= Faker::Lorem.paragraph_by_chars %></p>
+    </div>
 
-      <div class="container">
-        <h1>From My Gallery</h1>
-        <p><%= Faker::Lorem.paragraph_by_chars %></p>
-      </div>
 
-
-    <div class="container border">
-      <div class="row row-cols-3 border">
+    <div class="container mb-5">
+      <div class="row row-cols-3">
         <% @service.photos.each do |photo| %>
-          <div class="col border">
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <div>
+            <%= cl_image_tag photo.key, class: "gallery-img mx-auto d-block", height: 300, width: 400, crop: :fill %>
           </div>
         <% end %>
       </div>
-
     </div>
+
+  </div>
 </div>
