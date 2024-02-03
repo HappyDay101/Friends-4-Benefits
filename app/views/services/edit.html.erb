@@ -1,0 +1,15 @@
+<h2>Edit Service</h2>
+
+<div class="m-3">
+  <%= simple_form_for(@service, html: { multipart: true }) do |f| %>
+    <%= f.input :service_name, label: 'Service Name' %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :category, collection: Service::SERVICE_CATEGORIES, label: 'Category' %>
+    <%= f.input :price, label: 'Price' %>
+    <%= f.input :location, label: 'Location' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Photos' %>
+    <%= f.button :submit, 'Update Service' %>
+  <% end %>
+</div>
+
+<%= link_to 'Back', services_path %>
