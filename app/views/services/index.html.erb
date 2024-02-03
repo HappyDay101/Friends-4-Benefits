@@ -51,8 +51,8 @@
         <!-- Wrap the card content in a link to the show page -->
         <%= link_to service_path(service) do %>
           <div class="card card-bg-color">
-            <% if @service.user.photo.attached? %>
-              <%= image_tag @service.user.photo, alt: "Service Picture", class: "img-fluid" %>
+            <% if service.user.photo.attached? %>
+              <%= image_tag service.user.photo, alt: "Service Picture", class: "img-fluid" %>
             <% else %>
               <%= image_tag "sports/sport_1.jpg", alt: "Service Picture", class: "img-fluid" %>
             <% end %>
