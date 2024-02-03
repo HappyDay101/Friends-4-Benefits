@@ -15,26 +15,11 @@
     </ul>
   </div>
 
-  <div class="card m-4" style="width: 18rem;">
-    <div class="card-body">
-      <h6 class="card-title text-muted">Dog Trainer</h5>
-      <h5 class="card-subtitle mt-2">$150.00</h6>
-    </div>
-  </div>
-
-  <div class="card m-4" style="width: 18rem;">
-    <div class="card-body">
-      <h6 class="card-title text-muted">Pro Training</h5>
-      <h5 class="card-subtitle mt-2">$200.00</h6>
-    </div>
-  </div>
-
     <!-- Iterate over services -->
-  @services = current_user.services
   <% @services.each do |service| %>
     <div class="card m-4" style="width: 18rem;">
       <div class="card-body">
-        <h6 class="card-title text-muted"><%= service.title %></h6>
+        <h6 class="card-title text-muted"><%= service.category %></h6>
         <h5 class="card-subtitle mt-2"><%= number_to_currency(service.price) %></h5>
       </div>
     </div>
