@@ -6,20 +6,22 @@
     <p class="text-muted">Select the type of friend you're looking for!</p>
 
   <!-- Filter Buttons -->
+
   <%= render "shared/filter_buttons" %>
+
 
   <!-- Services Cards Section -->
   <div class="container-fluid">
-    <div class="row mt-4">
+    <div class="row mt-4 providerscart ">
       <% @services.each do |service| %>
         <div class="col-3 my-4">
           <!-- Wrap the card content in a link to the show page -->
           <%= link_to service_path(service) do %>
-            <div class="card card-bg-color">
+            <div class="card  peronscard">
               <% if service.user.photo.attached? %>
                 <%= image_tag service.user.photo, alt: "Service Picture", class: "index-img" %>
               <% else %>
-                <%= image_tag "sports/sport_1.jpg", alt: "Service Picture", width: 300, height: 300 %>
+                <%= image_tag "sports/sport_1.jpg", alt: "Service Picture",  width: 290, height: 300 %>
               <% end %>
               <div class="card-body">
                 <h5 class="card-title"><%= link_to service.user.first_name, service_path(service), class: "text-decoration-none" %></h5>

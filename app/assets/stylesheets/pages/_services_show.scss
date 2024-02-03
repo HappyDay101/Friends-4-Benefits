@@ -348,3 +348,43 @@ input {
   box-shadow: 5px 5px 5px 0px #434343;
   border-radius: 5%;
 }
+
+// services index
+
+.filter_buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.btn-outline-warning:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.providerscart{
+  width: 95%;
+  margin: 0 auto;
+}
+// card-bg-color
+.peronscard{
+  width: auto;
+  height: 450px;
+  background-color: #f5923e;
+  border-radius: 3%;
+  border: 1px orange;
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.peronscard:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.index-img{
+  border-radius: 2%;
+}
