@@ -7,7 +7,11 @@
         <i class="fa fa-arrow-left"></i>
       <% end %>
       <div class="service-image fancy-hover">
-        <%= image_tag @service.user.photo, alt: "Service Picture", class: "img-fluid" %>
+        <% if @service.user.photo.attached? %>
+          <%= image_tag @service.user.photo, alt: "Service Picture", class: "img-fluid" %>
+        <% else %>
+          <%= image_tag "sports/sport_1.jpg", alt: "Service Picture", class: "img-fluid" %>
+        <% end %>
       </div>
 
 

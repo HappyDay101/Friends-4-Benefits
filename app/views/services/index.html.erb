@@ -51,7 +51,11 @@
         <!-- Wrap the card content in a link to the show page -->
         <%= link_to service_path(service) do %>
           <div class="card card-bg-color">
-            <%= image_tag service.user.photo, class:"mt-4", height: 300, width: 300, crop: :fill %>
+            <% if service.user.photo.attached? %>
+              <%= image_tag service.user.photo, alt: "Service Picture", class: "img-fluid" %>
+            <% else %>
+              <%= image_tag "sports/sport_1.jpg", alt: "Service Picture", class: "img-fluid" %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= link_to service.user.first_name, service_path(service), class: "text-decoration-none" %></h5>
               <p class="card-text"><%= service.service_name %></p>

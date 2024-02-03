@@ -1,0 +1,17 @@
+<div class="m-3">
+<%= simple_form_for(@service, html: { multipart: true }) do |f| %>
+  <p>Service Name</p>
+  <%= f.input :service_name, label: 'Service Name' %>
+  <p>Description</p>
+  <%= f.input :description, label: "Description" %>
+  <p>Category</p>
+  <%= f.input :category, collection: Service::SERVICE_CATEGORIES, label: 'Category' %>
+  <p>Price</p>
+  <%= f.input :price, label: 'Price' %>
+  <p>Location</p>
+  <%= f.input :location, label: 'Location' %>
+  <p>Photos</p>
+  <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+  <%= f.submit 'Create Service' %>
+<% end %>
+</div>

@@ -13,23 +13,33 @@ class ServicesController < ApplicationController
     @service = Service.new
   end
 
+  # def create
+  #   @service = List.new(service_params)
+  #   if @service.save
+  #     redirect_to services_path
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
+
   def create
-    @service = Service.new(service_params)
+    @service = current_user.services.new(service_params)
     if @service.save
-      redirect_to services_path
+      redirect_to service_path(@service), notice: "Service created successfully"
     else
+      Rails.logger.debug(@service.errors.full_messages.to_sentence)
+      flash.now[:alert] = @service.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
-
 
   def show
     @service = Service.find_by(id: params[:id])
     @bookings = @service.bookings.includes(:user)
     @booking = Booking.new()
+    # review
     @reviews = @service.reviews.includes(:user)
     @review = Review.new
-
   end
 
   private
