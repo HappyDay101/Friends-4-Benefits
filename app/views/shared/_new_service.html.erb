@@ -1,4 +1,4 @@
-<div class="m-3">
+
 <%= simple_form_for(@service, html: { multipart: true }) do |f| %>
   <p>Service Name</p>
   <%= f.input :service_name, label: 'Service Name' %>
@@ -14,4 +14,3 @@
   <%= f.input :photos, as: :file, input_html: {multiple: true} %>
   <%= f.submit 'Create Service' %>
 <% end %>
-</div>
