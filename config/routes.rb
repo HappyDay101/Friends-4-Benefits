@@ -2,31 +2,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
   resources :services, only: %i[index show new create edit update destroy] do
-    resources :bookings, only: [:create] do
-      # member do
-      #   patch :accept, as: 'accept'
-      #   patch :reject, as: 'reject'
-      # end
-    end
-  end
-
-  resources :bookings, only: [:update]
-
-  get "dashboard", to: "bookings#index"
-  get '/bookings/new', to: 'bookings#new', as: 'new_booking'  # Changed from 'reservations' to 'bookings'
-
-  # services
-  resources :services do
+    resources :bookings, only: [:create]
     resources :reviews
   end
 
-  resources :services do
-    resources :reviews, only: [:create]
-  end
+  # Singular route for creating a new booking outside of the service scope
+  get '/bookings/new', to: 'bookings#new', as: 'new_booking'
 
+  # Singular route for updating a booking
+  resources :bookings, only: [:update]
+
+  # Route for the dashboard which likely shows user services and bookings
+  get "dashboard", to: "bookings#index"
 end
