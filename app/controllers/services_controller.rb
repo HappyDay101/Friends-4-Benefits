@@ -47,6 +47,16 @@ class ServicesController < ApplicationController
     end
   end
 
+  def destroy
+    @service = Service.find(params[:id])
+    if current_user == @service.user
+      @service.destroy
+      redirect_to services_path, notice: "Service deleted successfully"
+    else
+      redirect_to services_path, alert: "Not authorized"
+    end
+  end
+
   private
 
   def service_params
