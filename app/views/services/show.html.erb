@@ -64,11 +64,7 @@
       <div class="row row-cols-3">
         <% @service.photos.each do |photo| %>
           <div>
-            <% if @service.user.photo.attached? %>
-              <%= image_tag @service.user.photo, alt: "Service Picture", class: "index-img" %>
-            <% else %>
-              <%= image_tag "rashad.jpg", alt: "Service Picture", width: 300, height: 300 %>
-            <% end %>
+            <%= cl_image_tag photo.key, class: "gallery-img mx-auto d-block", height: 300, width: 400, crop: :fill %>
           </div>
         <% end %>
       </div>
