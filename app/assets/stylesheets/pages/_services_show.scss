@@ -1,5 +1,5 @@
 #allin{
-  width: 90%;
+
   background-color: white;
 }
 .btn-secondary:hover {
@@ -14,9 +14,8 @@
   height: 500px;
   position: relative;
   color: whitesmoke;
-  background: rgb(44, 44, 44);
-  // background: linear-gradient(90deg, rgba(248,178,48,1) 20%, rgba(111,113,243,1) 20%);
-  // background: linear-gradient(90deg, rgba(111,113,243,1) 0%, rgba(248,178,48,1) 100%);
+  background: #7346ED;
+
 }
 
 .back-button {
@@ -176,7 +175,7 @@ input {
 }
 
 .search-button {
-  background: rgb(44, 44, 44);
+  background: #7346ED;
   color: white;
   padding: 10px 20px;
   font-size: 16px;
