@@ -12,8 +12,4 @@ class Service < ApplicationRecord
   belongs_to :user
 
   SERVICE_CATEGORIES = ['Animal Buddy', 'Coding Buddy', 'Cult Buddy', 'Drink Buddy', 'Emo Buddy', 'Sports Buddy'].freeze
-
-  def picture_url
-    picture.url
-  end
 end
