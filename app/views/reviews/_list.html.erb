@@ -1,13 +1,15 @@
-<% if reviews.any? %>
-  <h3>Reviews</h3>
-  <ul>
-    <% reviews.each do |review| %>
-      <li>
-        <strong><%= review.user.full_name %></strong>:
-        <%= review.content %> (Rating: <%= review.rating %>)
-      </li>
-    <% end %>
-  </ul>
+<% if reviews.present? && reviews.any? %>
+  <div class="reviews-section">
+    <h3>Reviews</h3>
+    <ul class="review-list">
+      <% reviews.each do |review| %>
+        <li class="review-item">
+          <strong><%= review.user.full_name %></strong>:
+          <%= review.content %> (Rating: <%= review.rating %>)
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% else %>
   <p>No reviews yet.</p>
 <% end %>
