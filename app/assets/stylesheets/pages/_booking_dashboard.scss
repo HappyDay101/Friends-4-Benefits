@@ -10,12 +10,20 @@
   color: red;
 }
 
+.buttons-service {
+  margin-right: 8px;
+}
+
+.edit_booking {
+  margin-right: 8px;
+}
 /* Custom Button Styles */
 .btn-custom-edit {
   background-color: #4CAF50; /* Green */
   color: white;
   border-radius: 20px; /* More rounded corners */
   border: none;
+  margin-top: 5px;
 }
 
 .btn-custom-delete {
@@ -23,18 +31,20 @@
   color: white;
   border-radius: 20px;
   border: none;
+  margin-top: 5px;
+
 }
 
 .btn-custom-book {
-  background-color: #008CBA; /* Blue */
+  background-color: #f8b230; /* Blue */
   color: white;
   border-radius: 20px;
   border: none;
 }
 
 .btn-custom-decline {
-  background-color: #e7e7e7; /* Light Gray */
-  color: black;
+  background-color: #7346ED; /* Light Gray */
+  color: white;
   border-radius: 20px;
   border: none;
 }
