@@ -10,15 +10,15 @@
       <%= f.error_notification %>
 
       <div class="form-inputs rightform2">
-        <p>name</p>
+        <p class="mb-1">Name</p>
         <%= f.input :first_name, label: "Name",required: true, autofocus: true, input_html: { autocomplete: "first_name"} %>
-        <p>surname</p>
+        <p class="mb-1">Surname</p>
         <%= f.input :last_name, required: true, autofocus: true, input_html: { autocomplete: "last_name" } %>
-        <p>email</p>
+        <p class="mb-1">Email</p>
         <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
-        <p>pasword</p>
+        <p class="mb-1">Password</p>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
-        <p>repeat pasword</p>
+        <p class="mb-1">Confirm password</p>
         <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
       </div>
         <br>

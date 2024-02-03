@@ -4,10 +4,5 @@
   <%= f.input :category, collection: Service::SERVICE_CATEGORIES, label: 'Category' %>
   <%= f.input :price, label: 'Price' %>
   <%= f.input :location, label: 'Location' %>
-  <% if @service.user.photo.attached? %>
-    <%= image_tag @service.user.photo, alt: "Service Picture", class: "img-fluid" %>
-  <% else %>
-    <p> user image</p>
-  <% end %>
-  <%= f.button :submit, 'Create Service' %>
+  <%= f.input :photos, as: :file, input_html: {multiple: true } %>
 <% end %>
