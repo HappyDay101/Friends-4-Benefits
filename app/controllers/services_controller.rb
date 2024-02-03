@@ -13,15 +13,6 @@ class ServicesController < ApplicationController
     @service = Service.new
   end
 
-  # def create
-  #   @service = List.new(service_params)
-  #   if @service.save
-  #     redirect_to services_path
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
-
   def create
     @service = current_user.services.new(service_params)
     if @service.save
@@ -40,6 +31,20 @@ class ServicesController < ApplicationController
     # review
     @reviews = @service.reviews.includes(:user)
     @review = Review.new
+  end
+
+  def edit
+    @service = Service.find(params[:id])
+    redirect_to(root_path, alert: "Not authorized") unless current_user == @service.user
+  end
+
+  def update
+    @service = Service.find(params[:id])
+    if @service.update(service_params)
+      redirect_to service_path(@service), notice: "Service updated successfully"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
