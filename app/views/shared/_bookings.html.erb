@@ -47,7 +47,6 @@
         <th scope="col">Date Start</th>
         <th scope="col">Date End</th>
         <th scope="col">Price</th>
-        <th scope="col">Total Hours</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -58,17 +57,18 @@
           <td><%= booking.start_date.strftime("%Y-%m-%d") %></td>
           <td><%= booking.end_date.strftime("%Y-%m-%d") %></td>
           <td><%= number_to_currency(booking.service.price) %></td>
-          <td>Hours</td>
-          <td>
-            <% if booking.pending? %>
-              Pending
-            <% elsif booking.booked? %>
-              Booked
-            <% elsif booking.declined? %>
-              Declined
-            <% else %>
-              <%= booking.status.capitalize %>
-            <% end %>
+          <td class="status">
+            <span class="<%= "status-#{booking.status}" %>">
+              <% if booking.pending? %>
+                Pending
+              <% elsif booking.booked? %>
+                Booked
+              <% elsif booking.declined? %>
+                Declined
+              <% else %>
+                <%= booking.status.capitalize %>
+              <% end %>
+            </span>
           </td>
         </tr>
       <% end %>
