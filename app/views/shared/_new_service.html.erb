@@ -11,7 +11,7 @@
   <p>Location</p>
   <%= f.input :location, label: 'Location' %>
   <p>Photos</p>
-  <%# <%= f.inpute :photos, as :file, input_html: {multiple: true} %>
-  <%= f.button :submit, 'Create Service' %>
+  <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+  <%= f.submit 'Create Service' %>
 <% end %>
 </div>
