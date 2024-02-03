@@ -1,8 +1,4 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: rgb(255, 0, 0);
-//   background-color: rgb(226, 128, 0);
-// }
+
 .friendslogo:hover, .zoom:hover, .avatar:hover {
   transform: scale(1.1);
   cursor: pointer;
@@ -11,18 +7,16 @@ a {
 
   text-decoration: none; /* no underline */
 }
-.sticky-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+// .sticky-navbar {
+//   position: sticky;
+//   top: 0;
+//   z-index: 100;
 
-}
+// }
 .container-fluid{
   width: 90%;
   height: 90px;
 
-
-  // background-color: rgb(221, 144, 144);
 }
 
 .divli{
@@ -61,22 +55,12 @@ a {
   color: rgb(255, 166, 0);
 
 }
-// .nav-item {
-//   display: flex;
-//   justify-content: flex-end;
 
-//   background-color: aqua;
-//   width: 100%;
-
-// }
-// .login1{
-// display: none;
-
-// }
 .fa-user{
   color: orange;
-  position: absolute;
-  margin-top: 10px;
+  width: auto;
+  // position: absolute;
+  // margin-top: 10px;
 }
 .fasus{
   color: orange;
@@ -84,9 +68,3 @@ a {
   right: 80px;
   top: 35px;
 }
-// .nav-link{
-//   position: absolute;
-//   background-color: gray;
-//   margin: 0 auto;
-
-// }

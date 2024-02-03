@@ -28,7 +28,8 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    // document.addEventListener('DOMContentLoaded', function () {
+      console.log("hello");
       // click event to a parent element
       document.body.addEventListener('click', function (event) {
         const stars = document.querySelectorAll('.star-label');
@@ -51,6 +52,9 @@
           ratingInput.value = index + 1;
         }
       });
-    });
+    // });
   </script>
 <% end %>
+
+<%# <%= form_with(model: [ @service, @review ], url: service_reviews_path(@service), remote: true) do |form| %>
+  <!-- Your existing form code -->

@@ -9,10 +9,10 @@ class ReviewsController < ApplicationController
       @review = @service.reviews.new(review_params)
       @review.user = current_user
 
-        if @review.save
-          redirect_to @service, notice: 'Review successfully added.'
-        else
-          flash[:alert] = 'Failed to add review.'
+      if @review.save
+        redirect_to @service, notice: 'Review successfully added.'
+      else
+        flash[:alert] = 'Failed to add review.'
         puts @review.errors.full_messages
         render 'services/show'
       end
