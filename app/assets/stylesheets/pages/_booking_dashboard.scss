@@ -1,0 +1,48 @@
+.status-pending {
+  color: orange;
+}
+
+.status-booked {
+  color: green;
+}
+
+.status-declined {
+  color: red;
+}
+
+/* Custom Button Styles */
+.btn-custom-edit {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border-radius: 20px; /* More rounded corners */
+  border: none;
+}
+
+.btn-custom-delete {
+  background-color: #F44336; /* Red */
+  color: white;
+  border-radius: 20px;
+  border: none;
+}
+
+.btn-custom-book {
+  background-color: #008CBA; /* Blue */
+  color: white;
+  border-radius: 20px;
+  border: none;
+}
+
+.btn-custom-decline {
+  background-color: #e7e7e7; /* Light Gray */
+  color: black;
+  border-radius: 20px;
+  border: none;
+}
+
+/* Hover effects for all custom buttons */
+.btn-custom-edit:hover,
+.btn-custom-delete:hover,
+.btn-custom-book:hover,
+.btn-custom-decline:hover {
+  opacity: 0.8;
+}
