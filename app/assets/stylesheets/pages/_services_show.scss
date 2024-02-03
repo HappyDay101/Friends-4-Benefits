@@ -212,7 +212,8 @@ input {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-  max-height: 350px; /* Set a maximum height for the reviews section */
+  border: 2px solid orange;
+  max-height: 375px; /* Set a maximum height for the reviews section */
   overflow-y: auto; /* Add a vertical scrollbar if needed */
 }
 
@@ -259,6 +260,7 @@ input {
   flex-direction: column;
   max-width: 70%;
   border: 2px solid orange;
+  border-radius: 5px;
   padding: 20px;
   margin: 0 auto;
 
@@ -327,6 +329,9 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
+
+  margin: 0 auto;
 }
 .reviewform{
   display: flex;
