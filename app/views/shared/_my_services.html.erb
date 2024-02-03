@@ -21,6 +21,8 @@
       <div class="card-body">
         <h6 class="card-title text-muted"><%= service.category %></h6>
         <h5 class="card-subtitle mt-2"><%= number_to_currency(service.price) %></h5>
+        <%= link_to 'Edit', edit_service_path(service), class: 'btn btn-primary' %>
+        <%= link_to 'Delete', service_path(service), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       </div>
     </div>
   <% end %>
