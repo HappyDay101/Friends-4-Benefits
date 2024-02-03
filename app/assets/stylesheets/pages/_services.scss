@@ -10,6 +10,15 @@
 }
 
 .card-bg-color {
-    background-color: rgb(111, 113, 243);
+    background-color: #f5923e;
     color: white;
+    border-radius: 5%;
+    opacity: 0.9;
+    height: 450px;
+    box-shadow: 5px 5px 5px 0px #434343;
+}
+
+.index-img {
+  border-radius: 5%;
+  width: 100%;
 }
