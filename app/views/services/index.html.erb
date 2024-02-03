@@ -19,7 +19,7 @@
               <% if service.user.photo.attached? %>
                 <%= image_tag service.user.photo, alt: "Service Picture", class: "index-img" %>
               <% else %>
-                <%= image_tag "sports/sport_1.jpg", alt: "Service Picture", width: 300, height: 300 %>
+                <%= image_tag "rashad.jpg", alt: "Service Picture", width: 300, height: 300 %>
               <% end %>
               <div class="card-body">
                 <h5 class="card-title"><%= link_to service.user.first_name, service_path(service), class: "text-decoration-none" %></h5>
