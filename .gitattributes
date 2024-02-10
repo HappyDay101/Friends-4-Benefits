@@ -7,4 +7,4 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 
 # Update to display correct languages.
-*.html.erb linguist-language=Ruby
+.html.erb linguist-language=Ruby
