@@ -7,6 +7,20 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 
 # Update to display correct languages.
-"emmet.includeLanguages": {
-"erb": "html",
-}
+HTML+ERB:
+  type: markup
+  color: "#701516"
+  tm_scope: text.html.erb
+  group: HTML
+  aliases:
+  - erb
+  - rhtml
+  - html+ruby
+  extensions:
+  - ".erb"
+  - ".erb.deface"
+  - ".rhtml"
+  ace_mode: text
+  codemirror_mode: htmlembedded
+  codemirror_mime_type: application/x-erb
+  language_id: 150
