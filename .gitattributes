@@ -7,6 +7,8 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 
 # Update to display correct languages.
+*.html.erb linguist-language=Ruby
+
 HTML+ERB:
   type: markup
   color: "#701516"
